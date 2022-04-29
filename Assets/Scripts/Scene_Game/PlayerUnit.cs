@@ -45,7 +45,8 @@ public class PlayerUnit : MonoBehaviour {
         _playerJumpManager.Jump();
     }
 
-    public void OnCollisionEnter2D() {
-        _playerJumpManager.JumpEnd();
+    public void OnCollisionEnter2D(Collision2D col) {
+        if (col.gameObject.name == "Background")
+            _playerJumpManager.JumpEnd();
     }
 }
