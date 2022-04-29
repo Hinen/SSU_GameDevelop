@@ -6,5 +6,8 @@ public class InputManager : MonoBehaviour {
 			Scene_Game.Get().PlayerUnit.Move(Vector2.left);
 		else if (Input.GetKey(KeyCode.RightArrow))
 			Scene_Game.Get().PlayerUnit.Move(Vector2.right);
+
+		if (Input.GetKeyDown(KeyCode.Space))
+			Scene_Game.Get().PlayerUnit.Jump();
 	}
 }

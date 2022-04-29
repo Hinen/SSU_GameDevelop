@@ -1,7 +1,29 @@
 using UnityEngine;
 
 public class PlayerUnit : MonoBehaviour {
-    public Vector2 GamePosition => gameObject.transform.localPosition;
+    [SerializeField]
+    private Rigidbody2D _rigidbody2D;
+    
+    private PlayerJumpManager _playerJumpManager = new PlayerJumpManager();
+ 
+    public Rigidbody2D Rigidbody2D => _rigidbody2D;
+    
+    public Vector2 GamePosition {
+        get {
+            return gameObject.transform.localPosition;
+        }
+        set {
+            gameObject.transform.localPosition = value;
+        }
+    }
+
+    public void Awake() {
+        _playerJumpManager.Init(this);
+    }
+    
+    public void Update() {
+        _playerJumpManager.Update();
+    }
     
     public void Move(Vector2 dir) {
         var moveTranslation = Constants.PLAYER_MOVE_SPEED * dir * Time.deltaTime;
@@ -17,5 +39,13 @@ public class PlayerUnit : MonoBehaviour {
         }
         
         gameObject.transform.Translate(moveTranslation);
+    }
+
+    public void Jump() {
+        _playerJumpManager.Jump();
+    }
+
+    public void OnCollisionEnter2D() {
+        _playerJumpManager.JumpEnd();
     }
 }
