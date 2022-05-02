@@ -1,2 +1,2 @@
 # SSU_GameDevelop
-Learning game deveop with unity in SSU
+Learning game develop with unity in SSU
