@@ -26,7 +26,7 @@ public class PlayerUnit : MonoBehaviour {
     }
     
     public void Move(Vector2 dir) {
-        var moveTranslation = Constants.PLAYER_MOVE_SPEED * dir * Time.deltaTime;
+        var moveTranslation = Constants.Player.PLAYER_MOVE_SPEED * dir * Time.deltaTime;
         var adjustValue = 150f;
 
         if (dir == Vector2.left) {

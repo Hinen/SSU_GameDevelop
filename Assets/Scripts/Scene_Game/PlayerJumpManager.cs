@@ -20,7 +20,7 @@ public class PlayerJumpManager {
 
 		_jumpTimer += Time.deltaTime;
 		
-		if (_jumpTimer >= Constants.PLAYER_JUMP_UP_TIME) {
+		if (_jumpTimer >= Constants.Player.PLAYER_JUMP_UP_TIME) {
 			if (_playerUnit.Rigidbody2D.constraints != RigidbodyConstraints2D.None)
 				_playerUnit.Rigidbody2D.constraints = RigidbodyConstraints2D.None;
 			
@@ -29,7 +29,7 @@ public class PlayerJumpManager {
 
 		var addY = (_jumpTimer * _jumpTimer) * 5f + _jumpTimer * 10f + 3f;
 
-		if (_jumpHeight < Constants.PLAYER_JUMP_MAX_HEIGHT) {
+		if (_jumpHeight < Constants.Player.PLAYER_JUMP_MAX_HEIGHT) {
 			_jumpHeight += addY;
 			_playerUnit.GamePosition = new Vector2(_playerUnit.GamePosition.x, 
 			                                       _playerUnit.GamePosition.y + addY);

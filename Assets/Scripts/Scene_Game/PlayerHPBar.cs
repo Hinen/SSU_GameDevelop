@@ -14,14 +14,14 @@ public class PlayerHPBar : MonoBehaviour {
         set {
             _hp = value;
             
-            if (_hp > Constants.PLAYER_MAX_HP)
-                _hp = Constants.PLAYER_MAX_HP;
+            if (_hp > Constants.Player.PLAYER_MAX_HP)
+                _hp = Constants.Player.PLAYER_MAX_HP;
 
             if (_hp < 0)
                 _hp = 0;
             
-            _hpBarImage.fillAmount = (float)_hp / Constants.PLAYER_MAX_HP;
-            gameObject.SetActive(_hp != Constants.PLAYER_MAX_HP);
+            _hpBarImage.fillAmount = (float)_hp / Constants.Player.PLAYER_MAX_HP;
+            gameObject.SetActive(_hp != Constants.Player.PLAYER_MAX_HP);
         }
     }
     

@@ -2,8 +2,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PoolManager : MonoBehaviour {
-	public class PoolingKey {
-		public static string ARROW = "Arrow";
+	public static class PoolingKey {
+		public const string ARROW = "Arrow";
 	}
 	
 	[Header("Pooling Target")]
