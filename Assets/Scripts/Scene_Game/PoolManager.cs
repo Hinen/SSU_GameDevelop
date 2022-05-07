@@ -11,15 +11,6 @@ public class PoolManager : MonoBehaviour {
 	private StringPoolingGameObjectDictionary _poolingTarget;
 
 	private Dictionary<string, Queue<PoolingGameObject>> _pool = new Dictionary<string, Queue<PoolingGameObject>>();
-
-	private static PoolManager _instance;
-	public static PoolManager Get() {
-		return _instance;
-	}
-
-	public void Awake() {
-		_instance = this;
-	}
 	
 	public PoolingGameObject Spawn(string key) {
 		if (!_poolingTarget.ContainsKey(key))

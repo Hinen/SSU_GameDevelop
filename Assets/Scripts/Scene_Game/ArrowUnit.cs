@@ -18,7 +18,7 @@ public class ArrowUnit : PoolingGameObject {
 
     public void Update() {
         if (GamePosition.y <= -Constants.BACKGROUND_Y_DIFF / 2f) {
-            PoolManager.Get().DeSpawn(this);
+            Scene_Game.Get().PoolManager.DeSpawn(this);
             return;
         }
 

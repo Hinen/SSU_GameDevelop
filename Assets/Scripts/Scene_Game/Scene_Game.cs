@@ -14,6 +14,14 @@ public class Scene_Game : MonoBehaviour {
 	private GameObject _worldCanvas;
 
 	public GameObject WorldCanvas => _worldCanvas;
+
+
+	[Header("Manager")]
+	[SerializeField]
+	private PoolManager _poolManager;
+	public PoolManager PoolManager =>_poolManager;
+	
+	private GameLevelManager _gameLevelManager = new GameLevelManager();
 	
 	public void Awake() {
 		_instance = this;
@@ -22,7 +30,7 @@ public class Scene_Game : MonoBehaviour {
 		_playerUnit.transform.localPosition = Vector3.zero;
 	}
 
-	public void Start() {
-		PoolManager.Get().Spawn(PoolManager.PoolingKey.ARROW);
+	public void Update() {
+		_gameLevelManager.Update(Time.deltaTime);
 	}
 }

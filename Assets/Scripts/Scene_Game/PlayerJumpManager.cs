@@ -27,7 +27,7 @@ public class PlayerJumpManager {
 			return;
 		}
 
-		var addY = (_jumpTimer * _jumpTimer) * 5f + _jumpTimer * 10f + 3f;
+		var addY = (_jumpTimer * _jumpTimer) * 5f + _jumpTimer * 10f + 5f;
 
 		if (_jumpHeight < Constants.Player.PLAYER_JUMP_MAX_HEIGHT) {
 			_jumpHeight += addY;

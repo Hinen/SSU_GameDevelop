@@ -472,6 +472,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playerUnitPrefab: {fileID: -7136729087700487863, guid: fadba6d5f7179c14a9f98d4cf1a63b60, type: 3}
   _worldCanvas: {fileID: 373407210}
+  _poolManager: {fileID: 1448855883}
 --- !u!4 &1448855881
 Transform:
   m_ObjectHideFlags: 0
