@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Scene_Game : MonoBehaviour {
+public class Scene_Game : SceneBase {
 	private static Scene_Game _instance;
 	public static Scene_Game Get() { return _instance; }
 	
@@ -23,9 +23,13 @@ public class Scene_Game : MonoBehaviour {
 	
 	private GameLevelManager _gameLevelManager = new GameLevelManager();
 	
-	public void Awake() {
-		_instance = this;
+	public override void Awake() {
+		base.Awake();
 		
+		_instance = this;
+	}
+
+	public void Start() {
 		_playerUnit = Instantiate(_playerUnitPrefab, _worldCanvas.transform);
 		_playerUnit.transform.localPosition = Vector3.zero;
 	}
