@@ -13,6 +13,8 @@ public class SceneBase : MonoBehaviour {
 
 			if (!(this is Scene_Title))
 				SceneManager.LoadScene("Scene_Title");
+			
+			Screen.SetResolution(Constants.RESOLUTION_X, Constants.RESOLUTION_Y, false);
 		}
 
 		CheckResolution();
@@ -30,10 +32,6 @@ public class SceneBase : MonoBehaviour {
 		    deviceHeight == _lastDeviceHeight)
 			return;
 
-		Screen.SetResolution(Constants.RESOLUTION_X, 
-		                     (int)((float)deviceHeight / deviceWidth * Constants.RESOLUTION_X), 
-		                     false);
-		
 		if ((float)Constants.RESOLUTION_X / Constants.RESOLUTION_Y < (float)deviceWidth / deviceHeight) {
 			var newWidth = ((float)Constants.RESOLUTION_X / Constants.RESOLUTION_Y) / ((float)deviceWidth / deviceHeight); 
 			Camera.main.rect = new Rect((1f - newWidth) / 2f, 0f, newWidth, 1f);
