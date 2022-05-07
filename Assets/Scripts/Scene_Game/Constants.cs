@@ -1,8 +1,8 @@
 public static class Constants {
-	public const float RESOLUTION_X = 2436f;
-	public const float RESOLUTION_Y = 1125f;
+	public const int RESOLUTION_X = 2436;
+	public const int RESOLUTION_Y = 1125;
 
-	public const float BACKGROUND_X_RANGE = RESOLUTION_X / 2f - 150f;
+	public const int BACKGROUND_X_RANGE = RESOLUTION_X / 2 - 150;
 	
 	public const float BACKGROUND_Y_DIFF = 365f;
 

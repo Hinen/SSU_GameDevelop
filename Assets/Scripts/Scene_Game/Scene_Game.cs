@@ -34,7 +34,9 @@ public class Scene_Game : SceneBase {
 		_playerUnit.transform.localPosition = Vector3.zero;
 	}
 
-	public void Update() {
+	public override void Update() {
+		base.Update();
+		
 		_gameLevelManager.Update(Time.deltaTime);
 	}
 
