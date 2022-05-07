@@ -45,10 +45,8 @@ public class ArrowUnit : PoolingGameObject {
     }
 
     private void SetRandomPosition() {
-        var rangeX = Constants.RESOLUTION_X / 2 - 40f;
-        
         transform.localPosition = new Vector3( 
-            Random.Range(-rangeX, rangeX),
+            Random.Range(-Constants.BACKGROUND_X_RANGE, Constants.BACKGROUND_X_RANGE),
             Constants.RESOLUTION_Y / 2 + Constants.BACKGROUND_Y_DIFF,
             0f);
     }

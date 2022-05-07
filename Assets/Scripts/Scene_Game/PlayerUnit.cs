@@ -27,14 +27,13 @@ public class PlayerUnit : MonoBehaviour {
     
     public void Move(Vector2 dir) {
         var moveTranslation = Constants.Player.PLAYER_MOVE_SPEED * dir * Time.deltaTime;
-        var adjustValue = 150f;
-
+        
         if (dir == Vector2.left) {
-            if (GamePosition.x + moveTranslation.x <= -Constants.RESOLUTION_X / 2f + adjustValue)
+            if (GamePosition.x + moveTranslation.x <= -Constants.BACKGROUND_X_RANGE)
                 return;
         }
         else if (dir == Vector2.right) {
-            if (GamePosition.x + moveTranslation.x >= Constants.RESOLUTION_X / 2f - adjustValue)
+            if (GamePosition.x + moveTranslation.x >= Constants.BACKGROUND_X_RANGE)
                 return;
         }
         
