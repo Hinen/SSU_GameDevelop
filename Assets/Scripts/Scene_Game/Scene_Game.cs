@@ -12,11 +12,17 @@ public class Scene_Game : MonoBehaviour {
 	
 	[SerializeField]
 	private GameObject _worldCanvas;
+
+	public GameObject WorldCanvas => _worldCanvas;
 	
 	public void Awake() {
 		_instance = this;
 		
 		_playerUnit = Instantiate(_playerUnitPrefab, _worldCanvas.transform);
 		_playerUnit.transform.localPosition = Vector3.zero;
+	}
+
+	public void Start() {
+		PoolManager.Get().Spawn(PoolManager.PoolingKey.ARROW);
 	}
 }

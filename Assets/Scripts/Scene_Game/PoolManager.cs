@@ -2,6 +2,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PoolManager : MonoBehaviour {
+	public class PoolingKey {
+		public static string ARROW = "Arrow";
+	}
+	
 	[Header("Pooling Target")]
 	[SerializeField]
 	private StringPoolingGameObjectDictionary _poolingTarget;
@@ -23,10 +27,13 @@ public class PoolManager : MonoBehaviour {
 
 		if (!_pool.ContainsKey(key))
 			_pool[key] = new Queue<PoolingGameObject>();
-		
-		var obj = _pool[key].Dequeue();
-		if (obj == null)
-			obj = Instantiate(_poolingTarget[key]);
+
+		PoolingGameObject obj;
+		var result = _pool[key].TryDequeue(out obj);
+		if (!result) {
+			obj = Instantiate(_poolingTarget[key], Scene_Game.Get().WorldCanvas.transform);
+			obj.poolingKey = key;
+		}
 
 		obj.OnSpawned();
 		return obj;
