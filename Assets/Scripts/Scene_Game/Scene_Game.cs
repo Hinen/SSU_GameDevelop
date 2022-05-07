@@ -33,4 +33,8 @@ public class Scene_Game : MonoBehaviour {
 	public void Update() {
 		_gameLevelManager.Update(Time.deltaTime);
 	}
+
+	public int GetLevel() {
+		return _gameLevelManager.Level;
+	}
 }

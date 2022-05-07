@@ -1,19 +1,24 @@
+using System;
+
 public class GameLevelManager {
     private float _gameTimer;
     private float _arrowTimer;
     
     public int Level {
         get {
-            return 1;
+            return 1 + (int)(_gameTimer / 10f);
         }
     }
 
     public float ArrowTime {
         get {
-            if (Level == 1)
-                return 0.5f;
+            return Math.Max(0.3f, 1f - (Level - 1) * 0.1f);
+        }
+    }
 
-            return 1f;
+    public int ArrowCount {
+        get {
+            return Math.Min(4, 1 + Level / 5);
         }
     }
 
@@ -31,7 +36,8 @@ public class GameLevelManager {
     }
 
     private void SpawnArrow() {
-        Scene_Game.Get().PoolManager.Spawn(PoolManager.PoolingKey.ARROW);
+        for (var i = 0; i < ArrowCount; i++)
+            Scene_Game.Get().PoolManager.Spawn(PoolManager.PoolingKey.ARROW);
         
         _arrowTimer = 0f;
     }
