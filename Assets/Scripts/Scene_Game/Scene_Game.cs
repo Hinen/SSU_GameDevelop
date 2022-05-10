@@ -30,6 +30,8 @@ public class Scene_Game : SceneBase {
 	}
 
 	public void Start() {
+		SoundManager.Get().PlayBGM(Constants.Sound.BGM_GAME);
+		
 		_playerUnit = Instantiate(_playerUnitPrefab, _worldCanvas.transform);
 		_playerUnit.transform.localPosition = Vector3.zero;
 	}

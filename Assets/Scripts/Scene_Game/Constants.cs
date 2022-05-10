@@ -13,4 +13,9 @@ public static class Constants {
 		public const float PLAYER_JUMP_UP_TIME = 0.3f;
 		public const float PLAYER_JUMP_MAX_HEIGHT = 200f;
 	}
+
+	public static class Sound {
+		public const string BGM_TITLE = "BGM_TITLE";
+		public const string BGM_GAME = "BGM_GAME";
+	}
 }
