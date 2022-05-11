@@ -7,7 +7,7 @@ public class Scene_Title : SceneBase {
 	}
 
 	public void OnClickGameStartButton() {
-		SceneManager.LoadScene("Scene_Game");
+		SceneManager.LoadScene(Constants.SceneName.SCENE_SELECT_CHARACTER);
 	}
 
 	public void OnClickQuitButton() {

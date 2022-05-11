@@ -6,6 +6,12 @@ public static class Constants {
 	
 	public const float BACKGROUND_Y_DIFF = 365f;
 
+	public static class SceneName {
+		public const string SCENE_TITLE = "Scene_Title";
+		public const string SCENE_SELECT_CHARACTER = "Scene_SelectCharacter";
+		public const string SCENE_GAME = "Scene_Game";
+	}
+
 	public static class Player {
 		public const int PLAYER_MAX_HP = 100;
 		public const float PLAYER_MOVE_SPEED = 800f;
