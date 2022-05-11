@@ -14,7 +14,9 @@ public static class Constants {
 
 	public static class Player {
 		public const int PLAYER_MAX_HP = 100;
-		public const float PLAYER_MOVE_SPEED = 800f;
+		
+		public const float PLAYER_DEFAULT_MOVE_SPEED = 800f;
+		public const float PLAYER_SPEED_UP_MOVE_SPEED = 1400f;
 
 		public const float PLAYER_JUMP_UP_TIME = 0.3f;
 		public const float PLAYER_JUMP_MAX_HEIGHT = 200f;

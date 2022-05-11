@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+
 public class PlayerUnit : MonoBehaviour {
     public enum PlayerUnitType {
         JUMP = 0,
@@ -15,10 +16,10 @@ public class PlayerUnit : MonoBehaviour {
     
     [SerializeField]
     private Rigidbody2D _rigidbody2D;
+    public Rigidbody2D Rigidbody2D => _rigidbody2D;
     
     private PlayerSkillHandler _playerSkillHandler;
- 
-    public Rigidbody2D Rigidbody2D => _rigidbody2D;
+    private float _moveSpeed = Constants.Player.PLAYER_DEFAULT_MOVE_SPEED;
     
     public Vector2 GamePosition {
         get {
@@ -37,7 +38,7 @@ public class PlayerUnit : MonoBehaviour {
                 _playerSkillHandler = new JumpSkillHandler(this);
                 break;
             case PlayerUnitType.SPEED_UP:
-                _playerSkillHandler = new PlayerSkillHandler(this);
+                _playerSkillHandler = new SpeedUpSkillHandler(this);
                 break;
             case PlayerUnitType.TIME_STOP:
                 _playerSkillHandler = new PlayerSkillHandler(this);
@@ -50,7 +51,7 @@ public class PlayerUnit : MonoBehaviour {
     }
     
     public void Move(Vector2 dir) {
-        var moveTranslation = Constants.Player.PLAYER_MOVE_SPEED * dir * Time.deltaTime;
+        var moveTranslation = _moveSpeed * dir * Time.deltaTime;
         
         if (dir == Vector2.left) {
             if (GamePosition.x + moveTranslation.x <= -Constants.BACKGROUND_X_RANGE)
@@ -70,5 +71,9 @@ public class PlayerUnit : MonoBehaviour {
 
     public void OnCollisionEnter2D(Collision2D col) {
         _playerSkillHandler.OnCollisionEnter2D(col);
+    }
+
+    public void SetMoveSpeed(float value) {
+        _moveSpeed = value;
     }
 }

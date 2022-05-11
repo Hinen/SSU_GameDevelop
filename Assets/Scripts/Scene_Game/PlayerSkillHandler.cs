@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class PlayerSkillHandler {
     protected PlayerUnit _playerUnit;
-    
+
     public PlayerSkillHandler(PlayerUnit playerUnit) {
         _playerUnit = playerUnit;
     }

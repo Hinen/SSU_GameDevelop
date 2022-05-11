@@ -22,6 +22,8 @@ public class SceneBase : MonoBehaviour {
 
 	public virtual void Update() {
 		CheckResolution();
+
+		Timer.Get().Update(Time.deltaTime);
 	}
 
 	private void CheckResolution() {
