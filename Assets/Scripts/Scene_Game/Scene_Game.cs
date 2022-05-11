@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Scene_Game : SceneBase {
 	private static Scene_Game _instance;
-	public static Scene_Game Get() { return _instance; }
+	public static Scene_Game Get() => _instance;
 	
 	[Header("World")]
 	[SerializeField]

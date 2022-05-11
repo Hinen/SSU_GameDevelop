@@ -1,10 +1,22 @@
 using UnityEngine;
-
+using UnityEngine.UI;
 public class PlayerUnit : MonoBehaviour {
+    public enum PlayerUnitType {
+        JUMP = 0,
+        SPEED_UP = 1,
+        TIME_STOP = 2
+    }
+
+    [SerializeField]
+    private Sprite[] _playerSprites;
+    
+    [SerializeField]
+    private SpriteRenderer _playerSpriteRenderer;
+    
     [SerializeField]
     private Rigidbody2D _rigidbody2D;
     
-    private PlayerJumpManager _playerJumpManager = new PlayerJumpManager();
+    private PlayerSkillHandler _playerSkillHandler;
  
     public Rigidbody2D Rigidbody2D => _rigidbody2D;
     
@@ -18,11 +30,23 @@ public class PlayerUnit : MonoBehaviour {
     }
 
     public void Awake() {
-        _playerJumpManager.Init(this);
+        _playerSpriteRenderer.sprite = _playerSprites[(int)GameManager.Get().SelectedPlayerUnitType];
+        
+        switch (GameManager.Get().SelectedPlayerUnitType) {
+            case PlayerUnitType.JUMP:
+                _playerSkillHandler = new JumpSkillHandler(this);
+                break;
+            case PlayerUnitType.SPEED_UP:
+                _playerSkillHandler = new PlayerSkillHandler(this);
+                break;
+            case PlayerUnitType.TIME_STOP:
+                _playerSkillHandler = new PlayerSkillHandler(this);
+                break;
+        }
     }
     
     public void Update() {
-        _playerJumpManager.Update();
+        _playerSkillHandler.Update();
     }
     
     public void Move(Vector2 dir) {
@@ -40,12 +64,11 @@ public class PlayerUnit : MonoBehaviour {
         gameObject.transform.Translate(moveTranslation);
     }
 
-    public void Jump() {
-        _playerJumpManager.Jump();
+    public void UseSkill() {
+        _playerSkillHandler.UseSkill();
     }
 
     public void OnCollisionEnter2D(Collision2D col) {
-        if (col.gameObject.name == "Background")
-            _playerJumpManager.JumpEnd();
+        _playerSkillHandler.OnCollisionEnter2D(col);
     }
 }
