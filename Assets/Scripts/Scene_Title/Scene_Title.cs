@@ -1,3 +1,4 @@
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class Scene_Title : SceneBase {
@@ -5,7 +6,11 @@ public class Scene_Title : SceneBase {
 		SoundManager.Get().PlayBGM(Constants.Sound.BGM_TITLE);
 	}
 
-	public void OnClickTest() {
+	public void OnClickGameStartButton() {
 		SceneManager.LoadScene("Scene_Game");
+	}
+
+	public void OnClickQuitButton() {
+		Application.Quit();
 	}
 }
