@@ -1,31 +1,19 @@
 using UnityEngine;
-using UnityEngine.UI;
 
-public class PlayerHPBar : MonoBehaviour {
+public class PlayerHPBar : PlayerBarBase {
     [SerializeField]
-    private Image _hpBarImage;
+    private float _maxHP;
     
-    private int _hp;
-    
-    public int Hp {
+    public float Hp {
         get {
-            return _hp;
+            return Value;
         }
         set {
-            _hp = value;
-            
-            if (_hp > Constants.Player.PLAYER_MAX_HP)
-                _hp = Constants.Player.PLAYER_MAX_HP;
-
-            if (_hp < 0)
-                _hp = 0;
-            
-            _hpBarImage.fillAmount = (float)_hp / Constants.Player.PLAYER_MAX_HP;
-            gameObject.SetActive(_hp != Constants.Player.PLAYER_MAX_HP);
+            Value = value;
         }
     }
     
-    public void Awake() {
-        Hp = 100;
+     public void Awake() {
+        Init(_maxHP);
     }
 }
