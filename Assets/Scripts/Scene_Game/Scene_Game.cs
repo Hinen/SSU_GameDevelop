@@ -6,7 +6,11 @@ public class Scene_Game : SceneBase {
 	
 	[Header("World")]
 	[SerializeField]
-	private PlayerUnit _playerUnitPrefab;
+	private JumpPlayerUnit _jumpPlayerUnitPrefab;
+	
+	[SerializeField]
+	private SpeedUpPlayerUnit _speedUpPlayerUnitPrefab;
+	
 	private PlayerUnit _playerUnit;
 	public PlayerUnit PlayerUnit => _playerUnit;
 	
@@ -32,7 +36,25 @@ public class Scene_Game : SceneBase {
 	public void Start() {
 		SoundManager.Get().PlayBGM(Constants.Sound.BGM_GAME);
 		
-		_playerUnit = Instantiate(_playerUnitPrefab, _worldCanvas.transform);
+		CreateUnit();
+	}
+
+	private void CreateUnit() {
+		PlayerUnit prefab = _jumpPlayerUnitPrefab;
+
+		switch (GameManager.Get().SelectedPlayerUnitType) {
+			case PlayerUnit.PlayerUnitType.JUMP:
+				prefab = _jumpPlayerUnitPrefab;
+				break;
+			case PlayerUnit.PlayerUnitType.SPEED_UP:
+				prefab = _speedUpPlayerUnitPrefab;
+				break;
+			case PlayerUnit.PlayerUnitType.TIME_STOP:
+				//prefab = _jumpPlayerUnitPrefab;
+				break;
+		}
+
+		_playerUnit = Instantiate(prefab, _worldCanvas.transform);
 		_playerUnit.transform.localPosition = Vector3.zero;
 	}
 

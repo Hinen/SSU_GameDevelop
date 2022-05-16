@@ -470,7 +470,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61e426fc47cfa1b42ba8dde191bc7eeb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerUnitPrefab: {fileID: -7136729087700487863, guid: fadba6d5f7179c14a9f98d4cf1a63b60, type: 3}
+  _jumpPlayerUnitPrefab: {fileID: 2496303509829596463, guid: 87945f3a830c447f9a8cce7bf1835c6b, type: 3}
+  _speedUpPlayerUnitPrefab: {fileID: 3944664125588591021, guid: adb00effd2e9843e2a9f5e50b82dc690, type: 3}
   _worldCanvas: {fileID: 373407210}
   _poolManager: {fileID: 1448855883}
 --- !u!4 &1448855881

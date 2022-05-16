@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.UI;
 
 public class PlayerUnit : MonoBehaviour {
     public enum PlayerUnitType {
@@ -7,18 +6,12 @@ public class PlayerUnit : MonoBehaviour {
         SPEED_UP = 1,
         TIME_STOP = 2
     }
-
-    [SerializeField]
-    private Sprite[] _playerSprites;
-    
-    [SerializeField]
-    private SpriteRenderer _playerSpriteRenderer;
     
     [SerializeField]
     private Rigidbody2D _rigidbody2D;
     public Rigidbody2D Rigidbody2D => _rigidbody2D;
     
-    private PlayerSkillHandler _playerSkillHandler;
+    protected PlayerSkillHandler _playerSkillHandler;
     private float _moveSpeed = Constants.Player.PLAYER_DEFAULT_MOVE_SPEED;
     
     public Vector2 GamePosition {
@@ -30,20 +23,8 @@ public class PlayerUnit : MonoBehaviour {
         }
     }
 
-    public void Awake() {
-        _playerSpriteRenderer.sprite = _playerSprites[(int)GameManager.Get().SelectedPlayerUnitType];
+    public virtual void Awake() {
         
-        switch (GameManager.Get().SelectedPlayerUnitType) {
-            case PlayerUnitType.JUMP:
-                _playerSkillHandler = new JumpSkillHandler(this);
-                break;
-            case PlayerUnitType.SPEED_UP:
-                _playerSkillHandler = new SpeedUpSkillHandler(this);
-                break;
-            case PlayerUnitType.TIME_STOP:
-                _playerSkillHandler = new PlayerSkillHandler(this);
-                break;
-        }
     }
     
     public void Update() {
