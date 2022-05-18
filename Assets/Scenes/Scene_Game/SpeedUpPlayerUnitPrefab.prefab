@@ -731,6 +731,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 378fe34076c3d4e2589e83b669ed5940, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _spriteRenderer: {fileID: 1033724470527923905}
   _rigidbody2D: {fileID: 7616692843896905892}
   _playerHpBar: {fileID: 4815401325259907636}
   _playerCoolTimeBar: {fileID: 7265607604225679425}
