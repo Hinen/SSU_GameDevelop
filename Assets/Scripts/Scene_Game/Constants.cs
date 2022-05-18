@@ -7,6 +7,7 @@ public static class Constants {
 	public const float BACKGROUND_Y_DIFF = 365f;
 
 	public static class SceneName {
+		public const string SCENE_INIT = "Scene_Init";
 		public const string SCENE_TITLE = "Scene_Title";
 		public const string SCENE_SELECT_CHARACTER = "Scene_SelectCharacter";
 		public const string SCENE_GAME = "Scene_Game";

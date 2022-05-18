@@ -11,8 +11,8 @@ public class SceneBase : MonoBehaviour {
 		if (!_isInited) {
 			_isInited = true;
 
-			if (!(this is Scene_Title))
-				SceneManager.LoadScene("Scene_Title");
+			if (!(this is Scene_Init))
+				SceneManager.LoadScene(Constants.SceneName.SCENE_INIT);
 			
 			Screen.SetResolution(Constants.RESOLUTION_X, Constants.RESOLUTION_Y, false);
 		}
