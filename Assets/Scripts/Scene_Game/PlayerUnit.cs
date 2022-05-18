@@ -1,3 +1,5 @@
+using System.Collections;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -7,6 +9,9 @@ public class PlayerUnit : MonoBehaviour {
         SPEED_UP = 1,
         TIME_STOP = 2
     }
+
+    [SerializeField]
+    private SpriteRenderer _spriteRenderer;
     
     [SerializeField]
     private Rigidbody2D _rigidbody2D;
@@ -14,7 +19,6 @@ public class PlayerUnit : MonoBehaviour {
 
     [SerializeField]
     private PlayerHPBar _playerHpBar;
-    public PlayerHPBar PlayerHpBar => _playerHpBar;
 
     protected PlayerSkillHandler _playerSkillHandler;
     
@@ -73,6 +77,7 @@ public class PlayerUnit : MonoBehaviour {
             return;
         
         SoundManager.Get().PlayFX(Constants.Sound.FX.ATTACKED);
+        StartCoroutine(HurtEffectCoroutine());
         
         arrowUnit.AttackToPlayer();
 
@@ -83,5 +88,13 @@ public class PlayerUnit : MonoBehaviour {
 
     private void Dead() {
         SceneManager.LoadScene(Constants.SceneName.SCENE_TITLE);
+    }
+
+    private IEnumerator HurtEffectCoroutine() {
+        _spriteRenderer.material.DOColor(Color.red, 0.2f);
+        yield return new WaitForSeconds(0.2f);
+        
+        _spriteRenderer.material.DOColor(Color.white, 0.2f);
+        yield return new WaitForSeconds(0.2f);
     }
 }

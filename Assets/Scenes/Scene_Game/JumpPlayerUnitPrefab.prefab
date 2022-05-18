@@ -683,5 +683,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 717a3058c092c4d45a9202f92e5cd2b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _spriteRenderer: {fileID: 1840710936571499907}
   _rigidbody2D: {fileID: 9106542315011007462}
   _playerHpBar: {fileID: 6670961525382115651}
