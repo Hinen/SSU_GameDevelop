@@ -9,10 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5263853493120070590}
-  - component: {fileID: 52035257769439302}
+  - component: {fileID: 7473250062406781774}
   m_Layer: 0
   m_Name: Collider
-  m_TagString: Untagged
+  m_TagString: ArrowCollision
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -32,8 +32,8 @@ Transform:
   m_Father: {fileID: 5902760975877462647}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &52035257769439302
-BoxCollider2D:
+--- !u!60 &7473250062406781774
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -48,16 +48,22 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 83, y: 103}
-    newSize: {x: 0.83, y: 1.03}
-    adaptiveTilingThreshold: 0.5
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 83, y: 103}
-  m_EdgeRadius: 0
+  m_Points:
+    m_Paths:
+    - - {x: -10.849408, y: -8.377805}
+      - {x: -28.945044, y: -9.558223}
+      - {x: 2.6370745, y: -49.48931}
+      - {x: 29.945387, y: -12.8824625}
+      - {x: 14.053209, y: -11.919229}
+      - {x: 12.64554, y: 47.21113}
+      - {x: -9.69995, y: 48.573856}
 --- !u!1 &3959397984955673329
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerUnit : MonoBehaviour {
     public enum PlayerUnitType {
@@ -54,6 +55,14 @@ public class PlayerUnit : MonoBehaviour {
     public virtual void UseSkill() {
         _playerSkillHandler.UseSkill();
     }
+    
+    public void OnTriggerEnter2D(Collider2D col) {
+        switch (col.gameObject.tag) {
+            case "ArrowCollision":
+                Attacked();
+                break;
+        }
+    }
 
     public void OnCollisionEnter2D(Collision2D col) {
         _playerSkillHandler.OnCollisionEnter2D(col);
@@ -61,5 +70,16 @@ public class PlayerUnit : MonoBehaviour {
 
     public void SetMoveSpeed(float value) {
         _moveSpeed = value;
+    }
+
+    private void Attacked() {
+        _playerHpBar.Hp -= 20;
+
+        if (_playerHpBar.Hp <= 0)
+            Dead();
+    }
+
+    private void Dead() {
+        SceneManager.LoadScene(Constants.SceneName.SCENE_TITLE);
     }
 }
