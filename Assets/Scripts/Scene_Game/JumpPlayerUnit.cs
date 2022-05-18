@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class JumpPlayerUnit : PlayerUnit {
-    public override void Awake() {
+    public void Awake() {
         _playerSkillHandler = new JumpSkillHandler(this);
     }
 }

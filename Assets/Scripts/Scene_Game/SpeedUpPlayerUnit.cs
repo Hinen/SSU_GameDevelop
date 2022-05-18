@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class SpeedUpPlayerUnit : CoolTimeSkillPlayerUnit {
-    public override void Awake() {
+    public void Awake() {
         _playerSkillHandler = new SpeedUpSkillHandler(this);
     }
 }

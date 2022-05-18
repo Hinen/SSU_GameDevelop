@@ -28,10 +28,6 @@ public class PlayerUnit : MonoBehaviour {
             gameObject.transform.localPosition = value;
         }
     }
-
-    public virtual void Awake() {
-        
-    }
     
     public void Update() {
         _playerSkillHandler.Update();
