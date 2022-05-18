@@ -6,3 +6,6 @@ public class StringGameObjectDictionary : SerializableDictionary<string, GameObj
 
 [Serializable]
 public class StringPoolingGameObjectDictionary : SerializableDictionary<string, PoolingGameObject> { }
+
+[Serializable]
+public class StringAudioSourceDictionary : SerializableDictionary<string, AudioSource> { }

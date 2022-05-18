@@ -73,6 +73,10 @@ public class PlayerUnit : MonoBehaviour {
     }
 
     private void Attacked() {
+        if (_playerHpBar.Hp <= 0)
+            return;
+        
+        SoundManager.Get().PlayFX(Constants.Sound.FX.ATTACKED);
         _playerHpBar.Hp -= 20;
 
         if (_playerHpBar.Hp <= 0)

@@ -34,7 +34,7 @@ public class Scene_Game : SceneBase {
 	}
 
 	public void Start() {
-		SoundManager.Get().PlayBGM(Constants.Sound.BGM_GAME);
+		SoundManager.Get().PlayBGM(Constants.Sound.BGM.GAME);
 		
 		CreateUnit();
 	}

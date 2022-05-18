@@ -7,6 +7,9 @@ public class SoundManager : MonoBehaviour {
     [SerializeField]
     private AudioSource _bgmSource;
     
+    [SerializeField]
+    private StringAudioSourceDictionary _fxSourceDictionary;
+    
     public void Awake() {
         _instance = this;
         
@@ -19,5 +22,9 @@ public class SoundManager : MonoBehaviour {
         
         _bgmSource.clip = Resources.Load<AudioClip>("Sounds/BGM/" + bgm);
         _bgmSource.Play();
+    }
+
+    public void PlayFX(string fx) {
+        _fxSourceDictionary[fx]?.Play();
     }
 }

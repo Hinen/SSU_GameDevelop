@@ -24,7 +24,13 @@ public static class Constants {
 	}
 
 	public static class Sound {
-		public const string BGM_TITLE = "BGM_TITLE";
-		public const string BGM_GAME = "BGM_GAME";
+		public class BGM {
+			public const string TITLE = "BGM_TITLE";
+			public const string GAME = "BGM_GAME";
+		}
+		
+		public class FX {
+			public const string ATTACKED = "FX_ATTACKED";
+		}
 	}
 }

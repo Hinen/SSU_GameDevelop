@@ -3,7 +3,7 @@ using UnityEngine.SceneManagement;
 
 public class Scene_Title : SceneBase {
 	public void Start() {
-		SoundManager.Get().PlayBGM(Constants.Sound.BGM_TITLE);
+		SoundManager.Get().PlayBGM(Constants.Sound.BGM.TITLE);
 	}
 
 	public void OnClickGameStartButton() {
