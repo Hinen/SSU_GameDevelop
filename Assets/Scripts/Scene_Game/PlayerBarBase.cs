@@ -5,8 +5,8 @@ public abstract class PlayerBarBase : MonoBehaviour {
     [SerializeField]
     private Image _barImage;
 
-    protected float _maxValue { get; set; }
-    protected float _value { get; set; }
+    private float _maxValue { get; set; }
+    private float _value { get; set; }
 
     protected float Value {
         get {
@@ -20,14 +20,16 @@ public abstract class PlayerBarBase : MonoBehaviour {
 
             if (_value < 0)
                 _value = 0;
-            
-            _barImage.fillAmount = _value / _maxValue;
-            gameObject.SetActive(_value != _maxValue);
+
+            _barImage.fillAmount = GetBarFillAmount();
+            gameObject.SetActive(IsActiveBar());
         }
     }
+    
+    protected abstract float GetBarFillAmount();
+    protected abstract bool IsActiveBar();
 
     public void Init(float maxValue) {
         _maxValue = maxValue;
-        Value = maxValue;
     }
 }

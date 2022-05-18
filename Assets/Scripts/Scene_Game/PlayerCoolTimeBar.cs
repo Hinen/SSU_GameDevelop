@@ -17,5 +17,19 @@ public class PlayerCoolTimeBar : PlayerBarBase {
     
     public void Awake() {
         Init(_maxCoolTime);
+        Value = 0f;
+    }
+
+    public void Update() {
+        if (Value > 0f)
+            Value -= Time.deltaTime;
+    }
+
+    protected override float GetBarFillAmount() {
+        return (_maxCoolTime - Value) / _maxCoolTime;
+    }
+    
+    protected override bool IsActiveBar() {
+        return Value > 0f;
     }
 }

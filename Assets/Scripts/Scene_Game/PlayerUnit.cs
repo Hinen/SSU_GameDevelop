@@ -14,11 +14,6 @@ public class PlayerUnit : MonoBehaviour {
     [SerializeField]
     private PlayerHPBar _playerHpBar;
     public PlayerHPBar PlayerHpBar => _playerHpBar;
-    
-    [SerializeField]
-    private PlayerCoolTimeBar _playerCoolTimeBar;
-
-    public PlayerCoolTimeBar PlayerCoolTimeBar => _playerCoolTimeBar;
 
     protected PlayerSkillHandler _playerSkillHandler;
     
@@ -56,7 +51,7 @@ public class PlayerUnit : MonoBehaviour {
         gameObject.transform.Translate(moveTranslation);
     }
 
-    public void UseSkill() {
+    public virtual void UseSkill() {
         _playerSkillHandler.UseSkill();
     }
 
