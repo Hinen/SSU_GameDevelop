@@ -3,6 +3,9 @@ using UnityEngine;
 using Random = UnityEngine.Random;
 
 public class ArrowUnit : PoolingGameObject {
+    [SerializeField]
+    private PolygonCollider2D _collider2D;
+    
     private float _speed;
 
     private float MinSpeed {
@@ -31,6 +34,8 @@ public class ArrowUnit : PoolingGameObject {
     public override void OnSpawned() {
         base.OnSpawned();
 
+        _collider2D.enabled = true;
+        
         SetRandomPosition();
         SetSpeed();
     }
@@ -53,5 +58,9 @@ public class ArrowUnit : PoolingGameObject {
 
     private void SetSpeed() {
         _speed = Random.Range(MinSpeed, MaxSpeed);
+    }
+
+    public void AttackToPlayer() {
+        _collider2D.enabled = false;
     }
 }

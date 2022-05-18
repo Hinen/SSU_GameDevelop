@@ -59,7 +59,7 @@ public class PlayerUnit : MonoBehaviour {
     public void OnTriggerEnter2D(Collider2D col) {
         switch (col.gameObject.tag) {
             case "ArrowCollision":
-                Attacked();
+                Attacked(col.GetComponentInParent<ArrowUnit>());
                 break;
         }
     }
@@ -72,13 +72,15 @@ public class PlayerUnit : MonoBehaviour {
         _moveSpeed = value;
     }
 
-    private void Attacked() {
+    private void Attacked(ArrowUnit arrowUnit) {
         if (_playerHpBar.Hp <= 0)
             return;
         
         SoundManager.Get().PlayFX(Constants.Sound.FX.ATTACKED);
-        _playerHpBar.Hp -= 20;
+        
+        arrowUnit.AttackToPlayer();
 
+        _playerHpBar.Hp -= 20;
         if (_playerHpBar.Hp <= 0)
             Dead();
     }
