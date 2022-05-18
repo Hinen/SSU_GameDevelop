@@ -819,7 +819,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4008057290262704813}
-  - component: {fileID: 4174625422115356005}
+  - component: {fileID: 4637619559339752887}
   m_Layer: 0
   m_Name: Collider
   m_TagString: Untagged
@@ -842,8 +842,8 @@ Transform:
   m_Father: {fileID: 7616692843896905893}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &4174625422115356005
-BoxCollider2D:
+--- !u!60 &4637619559339752887
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -858,13 +858,50 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 178, y: 190}
-    newSize: {x: 1.78, y: 1.9}
-    adaptiveTilingThreshold: 0.5
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 178, y: 190}
-  m_EdgeRadius: 0
+  m_Points:
+    m_Paths:
+    - - {x: 79.59908, y: 28.03538}
+      - {x: 65.86053, y: 29.98795}
+      - {x: 57.67878, y: 28.947683}
+      - {x: 66.2137, y: 39.49411}
+      - {x: 61.68605, y: 63.206272}
+      - {x: 50.19513, y: 72.737976}
+      - {x: 42.448486, y: 91.44473}
+      - {x: 27.35648, y: 77.76374}
+      - {x: -1.1447778, y: 79.55884}
+      - {x: -22.440756, y: 74.195755}
+      - {x: -43.672623, y: 86.70445}
+      - {x: -47.535366, y: 69.22379}
+      - {x: -60.101128, y: 58.103947}
+      - {x: -66.53924, y: 46.860714}
+      - {x: -65.04409, y: 35.842796}
+      - {x: -50.494293, y: 27.531057}
+      - {x: -66.352425, y: 20.11819}
+      - {x: -79.50093, y: 13.240809}
+      - {x: -86.970276, y: 0.2743492}
+      - {x: -76.273506, y: -4.213377}
+      - {x: -66.23499, y: -4.667939}
+      - {x: -67.57065, y: -18.037794}
+      - {x: -52.928448, y: -49.913563}
+      - {x: -47.038532, y: -75.95935}
+      - {x: -36.682934, y: -90.533066}
+      - {x: -25.043236, y: -86.448235}
+      - {x: -16.776043, y: -68.36036}
+      - {x: 13.706501, y: -68.66844}
+      - {x: 19.087313, y: -82.00893}
+      - {x: 23.78423, y: -90.38457}
+      - {x: 32.201588, y: -91.274345}
+      - {x: 41.046757, y: -86.55929}
+      - {x: 47.100365, y: -65.431946}
+      - {x: 53.015217, y: -33.028572}
+      - {x: 55.89599, y: -0.9454346}
+      - {x: 73.48478, y: 4.690153}
+      - {x: 84.485634, y: 11.709073}
+      - {x: 86.32376, y: 19.85727}
