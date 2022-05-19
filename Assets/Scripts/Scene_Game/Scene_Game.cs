@@ -28,9 +28,9 @@ public class Scene_Game : SceneBase {
 	private GameLevelManager _gameLevelManager = new GameLevelManager();
 	
 	public override void Awake() {
-		base.Awake();
-		
 		_instance = this;
+		
+		base.Awake();
 	}
 
 	public void Start() {

@@ -1,4 +1,7 @@
+using System;
 using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 using Firebase;
 using Firebase.Auth;
 using Firebase.Database;
@@ -8,11 +11,11 @@ public class RankingManager : MonoBehaviour {
     private static RankingManager _instance;
     public static RankingManager Get() => _instance;
 
-    private class User {
+    public class RankingInfo {
         public string name;
         public int score;
         
-        public User(string name, int score) {
+        public RankingInfo(string name, int score) {
             this.name = name;
             this.score = score;
         }
@@ -61,21 +64,37 @@ public class RankingManager : MonoBehaviour {
         DontDestroyOnLoad(this);
     }
 
-    public void GetRankings() {
-        if (!IsInited)
+    public void GetRankings(Action<List<RankingInfo>> callback) {
+        List<RankingInfo> list = new List<RankingInfo>();
+        
+        if (!IsInited) {
+            callback(list);
             return;
+        }
 
         _databaseReference.Child("Ranking").GetValueAsync().ContinueWith(task => {
             if (task.IsCompleted) {
                 var dataSnapShot = task.Result;
-                
+                if (dataSnapShot == null) {
+                    callback(list);
+                    return;
+                }
+
                 foreach (var data in dataSnapShot.Children) {
                     var info = (IDictionary)data.Value;
-                    Debug.Log(info);   
+                    list.Add(new RankingInfo(info["name"].ToString(), int.Parse(info["score"].ToString())));
+
+                    if (list.Count >= 100)
+                        break;
                 }
+
+                list = list.OrderByDescending(x => x.score)
+                           .Select(x => x)
+                           .ToList();
+                callback(list);
             }
             else if (task.IsFaulted) {
-                Debug.LogError("err");
+                callback(list);
             }
         });
     }
@@ -84,7 +103,7 @@ public class RankingManager : MonoBehaviour {
         if (!IsInited)
             return;
         
-        string json = JsonUtility.ToJson(new User(name, score));
+        string json = JsonUtility.ToJson(new RankingInfo(name, score));
         _databaseReference.Child("Ranking").Child(_firebaseUser.UserId).SetRawJsonValueAsync(json);
     }
 }
