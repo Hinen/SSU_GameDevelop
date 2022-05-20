@@ -64,6 +64,8 @@ public class Scene_Game : SceneBase {
 	}
 
 	public void Start() {
+		RankingManager.Get().RefreshAuth();
+		
 		SoundManager.Get().PlayBGM(Constants.Sound.BGM.GAME);
 		
 		CreateUnit();
