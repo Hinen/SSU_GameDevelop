@@ -34,6 +34,20 @@ public class PlayerUnit : MonoBehaviour {
             gameObject.transform.localPosition = value;
         }
     }
+
+    public void Start() {
+        StartCoroutine(Animation());
+    }
+
+    private IEnumerator Animation() {
+        _spriteRenderer.transform.DORotate(new Vector3(0f, 0f, 5f), 0.3f);
+        yield return new WaitForSeconds(0.5f);
+        
+        _spriteRenderer.transform.DORotate(new Vector3(0f, 0f, -5f), 0.3f);
+        yield return new WaitForSeconds(0.5f);
+        
+        StartCoroutine(Animation());
+    }
     
     public void Update() {
         _playerSkillHandler.Update();
