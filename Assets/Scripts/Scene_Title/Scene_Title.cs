@@ -20,10 +20,12 @@ public class Scene_Title : SceneBase {
 	}
 
 	public void OnClickGameStartButton() {
+		SoundManager.Get().PlayFX(Constants.Sound.FX.TOUCH);
 		SceneManager.LoadScene(Constants.SceneName.SCENE_SELECT_CHARACTER);
 	}
 	
 	public void OnClickRankingButton() {
+		SoundManager.Get().PlayFX(Constants.Sound.FX.TOUCH);
 		SceneManager.LoadScene(Constants.SceneName.SCENE_RANKING);
 	}
 

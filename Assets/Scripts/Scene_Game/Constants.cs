@@ -30,6 +30,7 @@ public static class Constants {
 		
 		public class FX {
 			public const string ATTACKED = "FX_ATTACKED";
+			public const string TOUCH = "FX_TOUCH";
 		}
 	}
 }

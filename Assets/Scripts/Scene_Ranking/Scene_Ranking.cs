@@ -43,6 +43,7 @@ public class Scene_Ranking : SceneBase {
 	}
 	
 	public void OnClickQuit() {
+		SoundManager.Get().PlayFX(Constants.Sound.FX.TOUCH);
 		SceneManager.LoadScene(Constants.SceneName.SCENE_TITLE);
 	}
 }
