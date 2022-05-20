@@ -75,8 +75,8 @@ public class PlayerUnit : MonoBehaviour {
     private void Attacked(ArrowUnit arrowUnit) {
         if (_playerHpBar.Hp <= 0)
             return;
-        
-        SoundManager.Get().PlayFX(Constants.Sound.FX.ATTACKED);
+
+        Scene_Game.Get().AttackedEffect();
         StartCoroutine(HurtEffectCoroutine());
         
         arrowUnit.AttackToPlayer();
