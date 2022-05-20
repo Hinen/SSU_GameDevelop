@@ -147,7 +147,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _barImage: {fileID: 7846902698630962908}
-  _maxHP: 100
+  _maxHP: 80
 --- !u!222 &6938648203520963526
 CanvasRenderer:
   m_ObjectHideFlags: 0
