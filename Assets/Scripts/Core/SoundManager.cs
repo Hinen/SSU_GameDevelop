@@ -17,9 +17,13 @@ public class SoundManager : MonoBehaviour {
     }
 
     public void PlayBGM(string bgm) {
-        if (_bgmSource.isPlaying)
+        if (_bgmSource.isPlaying) {
+            if (_bgmSource.clip.name == bgm)
+                return;
+            
             _bgmSource.Stop();
-        
+        }
+
         _bgmSource.clip = Resources.Load<AudioClip>("Sounds/BGM/" + bgm);
         _bgmSource.Play();
     }
