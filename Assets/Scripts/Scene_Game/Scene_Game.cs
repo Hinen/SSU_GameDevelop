@@ -27,12 +27,24 @@ public class Scene_Game : SceneBase {
 
 	public GameObject WorldCanvas => _worldCanvas;
 
+	[Header("UI")]
+	[SerializeField]
+	private Canvas _canvas;
+	
 	[SerializeField]
 	private Image _damagedScreenImage;
 	
 	[SerializeField]
+	private Image _timeStopScreenImagePrefab;
 	private Image _timeStopScreenImage;
-	public Image TimeStopScreenImage => _timeStopScreenImage;
+	public Image TimeStopScreenImage {
+		get {
+			if (_timeStopScreenImage == null)
+				_timeStopScreenImage = Instantiate(_timeStopScreenImagePrefab, _canvas.transform);
+
+			return _timeStopScreenImage;
+		}
+	}
 
 	[Header("Manager")]
 	[SerializeField]
