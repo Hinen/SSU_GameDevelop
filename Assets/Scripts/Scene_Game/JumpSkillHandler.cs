@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class JumpSkillHandler : PlayerSkillHandler {
@@ -14,7 +12,8 @@ public class JumpSkillHandler : PlayerSkillHandler {
 	}
 
 	public override void UseSkill() {
-		_playerJumpManager.Jump();
+		if (_playerJumpManager.Jump())
+			SoundManager.Get().PlayFX(Constants.Sound.FX.JUMP);
 	}
 	
 	public override void OnCollisionEnter2D(Collision2D col) {

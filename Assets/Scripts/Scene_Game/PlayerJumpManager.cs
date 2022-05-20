@@ -36,15 +36,16 @@ public class PlayerJumpManager {
 		}
 	}
 
-	public void Jump() {
+	public bool Jump() {
 		if (_isJumping)
-			return;
+			return false;
 		
 		_isJumping = true;
 		_jumpTimer = 0f;
 		_jumpHeight = 0f;
 
 		_playerUnit.Rigidbody2D.constraints = RigidbodyConstraints2D.FreezePositionY;
+		return true;
 	}
 
 	public void JumpEnd() {
