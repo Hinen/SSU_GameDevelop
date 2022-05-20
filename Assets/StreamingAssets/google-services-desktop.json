@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "741888140661",
+    "project_id": "ssu-game-mid",
+    "storage_bucket": "ssu-game-mid.appspot.com",
+    "firebase_url" : "https://ssu-game-mid-default-rtdb.firebaseio.com/"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:741888140661:android:3b2d8720d4088ea98e1f3c",
+        "android_client_info": {
+          "package_name": "com.hinen.catarrow"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "741888140661-sijgpkmucdlcqn5ees1tid84vhtgir5e.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBsuJcfdo39EO6xcmWgceKVlhadCWC714k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "741888140661-sijgpkmucdlcqn5ees1tid84vhtgir5e.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
