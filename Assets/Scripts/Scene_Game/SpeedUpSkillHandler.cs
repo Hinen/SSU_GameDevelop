@@ -9,6 +9,8 @@ public class SpeedUpSkillHandler : PlayerSkillHandler {
 	}
 
 	public override void UseSkill() {
+		SoundManager.Get().PlayFX(Constants.Sound.FX.CAT);
+		
 		_playerUnit.SetMoveSpeed(Constants.Player.PLAYER_SPEED_UP_MOVE_SPEED);
         
 		Timer.Get().RegistTimer(5f, () => {
