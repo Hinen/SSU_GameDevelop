@@ -4,16 +4,20 @@ public class Scene_Game : SceneBase {
 	private static Scene_Game _instance;
 	public static Scene_Game Get() => _instance;
 	
-	[Header("World")]
+	[Header("Player")]
 	[SerializeField]
 	private JumpPlayerUnit _jumpPlayerUnitPrefab;
 	
 	[SerializeField]
 	private SpeedUpPlayerUnit _speedUpPlayerUnitPrefab;
 	
+	[SerializeField]
+	private TimeStopPlayerUnit _timeStopPlayerUnitPrefab;
+	
 	private PlayerUnit _playerUnit;
 	public PlayerUnit PlayerUnit => _playerUnit;
 	
+	[Header("World")]
 	[SerializeField]
 	private GameObject _worldCanvas;
 
@@ -50,7 +54,7 @@ public class Scene_Game : SceneBase {
 				prefab = _speedUpPlayerUnitPrefab;
 				break;
 			case PlayerUnit.PlayerUnitType.TIME_STOP:
-				//prefab = _jumpPlayerUnitPrefab;
+				prefab = _timeStopPlayerUnitPrefab;
 				break;
 		}
 

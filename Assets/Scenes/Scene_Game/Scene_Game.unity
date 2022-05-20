@@ -736,6 +736,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _jumpPlayerUnitPrefab: {fileID: 2496303509829596463, guid: 87945f3a830c447f9a8cce7bf1835c6b, type: 3}
   _speedUpPlayerUnitPrefab: {fileID: 3944664125588591021, guid: adb00effd2e9843e2a9f5e50b82dc690, type: 3}
+  _timeStopPlayerUnitPrefab: {fileID: 6276293485248651335, guid: edf4601aa7c03414db598fd36a8e2b18, type: 3}
   _worldCanvas: {fileID: 373407210}
   _poolManager: {fileID: 1448855883}
 --- !u!4 &1448855881
