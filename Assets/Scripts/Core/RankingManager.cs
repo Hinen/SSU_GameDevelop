@@ -26,7 +26,7 @@ public class RankingManager : MonoBehaviour {
     private FirebaseUser _firebaseUser;
     private DatabaseReference _databaseReference;
 
-    private bool IsInited => _firebaseApp != null && 
+    public bool IsInited => _firebaseApp != null && 
                              _firebaseUser != null &&
                              _databaseReference != null;
     

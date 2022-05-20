@@ -109,7 +109,9 @@ public class PlayerUnit : MonoBehaviour {
     }
 
     private void Dead() {
-        SceneManager.LoadScene(Constants.SceneName.SCENE_TITLE);
+        GameManager.Get().gameScore = Scene_Game.Get().GetGameTime();
+        
+        SceneManager.LoadScene(Constants.SceneName.SCENE_GAME_END);
     }
 
     private IEnumerator HurtEffectCoroutine() {

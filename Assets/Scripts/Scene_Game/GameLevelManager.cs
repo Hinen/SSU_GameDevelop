@@ -2,6 +2,8 @@ using System;
 
 public class GameLevelManager {
     private float _gameTimer;
+    public float GameTimer => (float)Math.Round(_gameTimer, 1);
+
     private float _arrowTimer;
     
     public int Level {
