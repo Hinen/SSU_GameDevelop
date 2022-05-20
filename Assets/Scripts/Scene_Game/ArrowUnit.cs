@@ -48,7 +48,7 @@ public class ArrowUnit : PoolingGameObject {
     }
 
     private void SetRandomPosition() {
-        var isSpawnPlayerPosX = Random.Range(0f, 1f) > 0.8f;
+        var isSpawnPlayerPosX = Random.Range(0f, 1f) > 0.85f;
         var x = isSpawnPlayerPosX
                     ? Scene_Game.Get().PlayerUnit.GamePosition.x
                     : Random.Range(-Constants.BACKGROUND_X_RANGE, Constants.BACKGROUND_X_RANGE);
