@@ -46,6 +46,9 @@ public class Scene_Game : SceneBase {
 		}
 	}
 
+	[SerializeField]
+	private Text _scoreText;
+
 	[Header("Manager")]
 	[SerializeField]
 	private PoolManager _poolManager;
@@ -89,10 +92,15 @@ public class Scene_Game : SceneBase {
 		base.Update();
 		
 		_gameLevelManager.Update(Time.deltaTime);
+		_scoreText.text = string.Format("점수 {0:F1}", GetGameTime());
 	}
 
 	public int GetLevel() {
 		return _gameLevelManager.Level;
+	}
+	
+	public float GetGameTime() {
+		return _gameLevelManager.GameTimer;
 	}
 
 	public void AttackedEffect() {
