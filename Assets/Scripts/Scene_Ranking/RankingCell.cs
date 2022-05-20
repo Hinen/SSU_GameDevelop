@@ -8,7 +8,7 @@ public class RankingCell : MonoBehaviour {
     [SerializeField]
     private Text _scoreText;
 
-    public void Init(int rank, string name, int score) {
+    public void Init(int rank, string name, float score) {
         _nameText.text = $"{rank}. {name}";
         _scoreText.text = score.ToString();
     }

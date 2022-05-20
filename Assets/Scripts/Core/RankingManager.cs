@@ -13,9 +13,9 @@ public class RankingManager : MonoBehaviour {
 
     public class RankingInfo {
         public string name;
-        public int score;
+        public float score;
         
-        public RankingInfo(string name, int score) {
+        public RankingInfo(string name, float score) {
             this.name = name;
             this.score = score;
         }
@@ -82,7 +82,7 @@ public class RankingManager : MonoBehaviour {
 
                 foreach (var data in dataSnapShot.Children) {
                     var info = (IDictionary)data.Value;
-                    list.Add(new RankingInfo(info["name"].ToString(), int.Parse(info["score"].ToString())));
+                    list.Add(new RankingInfo(info["name"].ToString(), float.Parse(info["score"].ToString())));
 
                     if (list.Count >= 100)
                         break;
@@ -99,7 +99,7 @@ public class RankingManager : MonoBehaviour {
         });
     }
 
-    public void InsertRanking(string name, int score) {
+    public void InsertRanking(string name, float score) {
         if (!IsInited)
             return;
         
