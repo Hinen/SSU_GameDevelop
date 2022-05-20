@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Scene_Ranking : SceneBase {
@@ -41,7 +42,7 @@ public class Scene_Ranking : SceneBase {
 		_isRankingInited = true;
 	}
 	
-	public void OnClickTest() {
-		RankingManager.Get().InsertRanking("hinen", 1234);
+	public void OnClickQuit() {
+		SceneManager.LoadScene(Constants.SceneName.SCENE_TITLE);
 	}
 }
