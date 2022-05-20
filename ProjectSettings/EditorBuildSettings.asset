@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Scene_Ranking/Scene_Ranking.unity
     guid: 7f3636a783a59f247afe757b2b6ca660
+  - enabled: 1
+    path: Assets/Scenes/Scene_GameEnd/Scene_GameEnd.unity
+    guid: 8001bf67b185b234cbc29398518654eb
   m_configObjects: {}

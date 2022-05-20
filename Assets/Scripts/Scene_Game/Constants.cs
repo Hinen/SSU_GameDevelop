@@ -12,6 +12,7 @@ public static class Constants {
 		public const string SCENE_SELECT_CHARACTER = "Scene_SelectCharacter";
 		public const string SCENE_GAME = "Scene_Game";
 		public const string SCENE_RANKING = "Scene_Ranking";
+		public const string SCENE_GAME_END = "Scene_GameEnd";
 	}
 
 	public static class Player {
