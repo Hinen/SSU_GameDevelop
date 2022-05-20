@@ -12,13 +12,13 @@ public class GameLevelManager {
 
     public float ArrowTime {
         get {
-            return Math.Max(0.3f, 1f - (Level - 1) * 0.1f);
+            return Math.Max(0.05f, 0.7f - (Level - 1) * 0.05f);
         }
     }
 
     public int ArrowCount {
         get {
-            return Math.Min(4, 1 + Level / 5);
+            return Math.Min(3, 1 + Level / 10);
         }
     }
 

@@ -24,6 +24,8 @@ public class PlayerUnit : MonoBehaviour {
     
     private float _moveSpeed = Constants.Player.PLAYER_DEFAULT_MOVE_SPEED;
 
+    private bool _isInvincible = false;
+
     public Vector2 GamePosition {
         get {
             return gameObject.transform.localPosition;
@@ -73,13 +75,19 @@ public class PlayerUnit : MonoBehaviour {
     }
 
     private void Attacked(ArrowUnit arrowUnit) {
+        if (_isInvincible)
+            return;
+        
         if (_playerHpBar.Hp <= 0)
             return;
 
+        Scene_Game.Get().PoolManager.DeSpawn(arrowUnit);
+        
+        _isInvincible = true;
+        Timer.Get().RegistTimer(0.3f, () => _isInvincible = false);
+
         Scene_Game.Get().AttackedEffect();
         StartCoroutine(HurtEffectCoroutine());
-        
-        arrowUnit.AttackToPlayer();
 
         _playerHpBar.Hp -= 20;
         if (_playerHpBar.Hp <= 0)
