@@ -16,7 +16,7 @@ public class Scene_GameEnd : SceneBase {
 		SoundManager.Get().PlayBGM(Constants.Sound.BGM.TITLE);
 
 		_gameScoreText.text = GameManager.Get().gameScore.ToString();
-		_rankingSubmitObj.SetActive(RankingManager.Get().IsInited);
+		_rankingSubmitObj.SetActive(RankingManager.Get().IsInited && GameManager.Get().gameScore > GameManager.Get().maxGameScore);
 	}
 
 	public void OnClickContinueButton() {
@@ -28,6 +28,7 @@ public class Scene_GameEnd : SceneBase {
 	}
 
 	public void OnClickSubmitRanking() {
+		GameManager.Get().maxGameScore = GameManager.Get().gameScore;
 		RankingManager.Get().InsertRanking(_rankingNameInputField.text, GameManager.Get().gameScore);
 		
 		_rankingSubmitObj.SetActive(false);

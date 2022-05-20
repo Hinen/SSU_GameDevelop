@@ -9,7 +9,8 @@ public class GameManager : MonoBehaviour {
 
     public bool isGamePauseByStopTimeSkill { get; set; }
 
-    public float gameScore { get; set; }
+    public float gameScore { get; set;  }
+    public float maxGameScore { get; set; }
 
     public void Awake() {
         _instance = this;

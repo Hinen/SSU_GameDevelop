@@ -42,32 +42,28 @@ public class RankingManager : MonoBehaviour {
                 _firebaseAuth = FirebaseAuth.DefaultInstance;
                 _databaseReference = FirebaseDatabase.DefaultInstance.RootReference;
 
-                RefreshAuth();
+                _firebaseAuth.SignInAnonymouslyAsync().ContinueWith(authTask => {
+                    if (authTask.IsCanceled) {
+                        Debug.LogError("SignInAnonymouslyAsync was canceled.");
+                        return;
+                    }
+            
+                    if (authTask.IsFaulted) {
+                        Debug.LogError("SignInAnonymouslyAsync encountered an error: " + task.Exception);
+                        return;
+                    }
+
+                    _firebaseUser = authTask.Result;
+                    Debug.LogFormat("FireBase User signed in successfully: {0} ({1})", _firebaseUser.DisplayName, _firebaseUser.UserId);
+
+                    GetMyRanking();
+                });
             } else {
                 Debug.LogError($"Could not resolve all Firebase dependencies: {dependencyStatus}");
             }
         });
 
         DontDestroyOnLoad(this);
-    }
-
-    public void RefreshAuth() {
-        _firebaseUser = null;
-        
-        _firebaseAuth.SignInAnonymouslyAsync().ContinueWith(authTask => {
-            if (authTask.IsCanceled) {
-                Debug.LogError("SignInAnonymouslyAsync was canceled.");
-                return;
-            }
-            
-            if (authTask.IsFaulted) {
-                Debug.LogError("SignInAnonymouslyAsync encountered an error: " + authTask.Exception);
-                return;
-            }
-
-            _firebaseUser = authTask.Result;
-            Debug.LogFormat("FireBase User signed in successfully: {0} ({1})", _firebaseUser.DisplayName, _firebaseUser.UserId);
-        });
     }
 
     public void GetRankings(Action<List<RankingInfo>> callback) {
@@ -101,6 +97,24 @@ public class RankingManager : MonoBehaviour {
             }
             else if (task.IsFaulted) {
                 callback(list);
+            }
+        });
+    }
+
+    private void GetMyRanking() {
+        if (!IsInited)
+            return;
+        
+        _databaseReference.Child("Ranking").Child(_firebaseUser.UserId).GetValueAsync().ContinueWith(task => {
+            if (task.IsCompleted) {
+                var dataSnapShot = task.Result;
+                if (dataSnapShot == null)
+                    return;
+
+                foreach (var data in dataSnapShot.Children) {
+                    if (data.Key == "score")
+                        GameManager.Get().maxGameScore = (float)data.Value;
+                }
             }
         });
     }
