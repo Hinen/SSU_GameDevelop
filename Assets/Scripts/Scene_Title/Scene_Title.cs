@@ -2,8 +2,21 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class Scene_Title : SceneBase {
+	[SerializeField]
+	private Animator _titleAnimator;
+
+	private static bool _isAlreadyPlayedAnimation;
+	
 	public void Start() {
 		SoundManager.Get().PlayBGM(Constants.Sound.BGM.TITLE);
+
+		if (!_isAlreadyPlayedAnimation) {
+			_titleAnimator.SetTrigger("Start");
+			_isAlreadyPlayedAnimation = true;
+		}
+		else {
+			_titleAnimator.SetTrigger("Loop");
+		}
 	}
 
 	public void OnClickGameStartButton() {
