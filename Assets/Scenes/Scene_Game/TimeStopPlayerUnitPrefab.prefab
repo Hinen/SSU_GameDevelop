@@ -471,7 +471,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _barImage: {fileID: 6117213299027759834}
-  _maxCoolTime: 15
+  _maxCoolTime: 10
 --- !u!222 &473416751543142023
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -781,7 +781,6 @@ MonoBehaviour:
   _rigidbody2D: {fileID: 6276293485248651333}
   _playerHpBar: {fileID: 8969358036131635925}
   _playerCoolTimeBar: {fileID: 6520840615618125984}
-  _timeStopScreenImage: {fileID: 0}
 --- !u!1 &8068187831321814810
 GameObject:
   m_ObjectHideFlags: 0

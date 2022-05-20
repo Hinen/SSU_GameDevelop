@@ -54,7 +54,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _barImage: {fileID: 7660208963291206203}
-  _maxCoolTime: 15
+  _maxCoolTime: 10
 --- !u!222 &4052070215093503590
 CanvasRenderer:
   m_ObjectHideFlags: 0

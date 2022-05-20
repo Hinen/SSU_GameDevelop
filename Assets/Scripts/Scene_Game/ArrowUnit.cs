@@ -8,14 +8,14 @@ public class ArrowUnit : PoolingGameObject {
     private float MinSpeed {
         get {
             var level = Scene_Game.Get().GetLevel();
-            return Math.Min(1200f, 500f + (level - 1) * 60f);
+            return Math.Min(900f, 400f + (level - 1) * 30f);
         }
     }
 
     private float MaxSpeed {
         get {
             var level = Scene_Game.Get().GetLevel();
-            return Math.Min(1600f, 800f + (level - 1) * 80f);
+            return Math.Min(1500f, 500f + (level - 1) * 50f);
         }
     }
     
