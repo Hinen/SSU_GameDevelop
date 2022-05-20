@@ -7,6 +7,8 @@ public class GameManager : MonoBehaviour {
     private PlayerUnit.PlayerUnitType _selectedPlayerUnitType;
     public PlayerUnit.PlayerUnitType SelectedPlayerUnitType => _selectedPlayerUnitType;
 
+    public bool isGamePauseByStopTimeSkill { get; set; }
+
     public void Awake() {
         _instance = this;
         

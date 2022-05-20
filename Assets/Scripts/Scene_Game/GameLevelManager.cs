@@ -28,6 +28,9 @@ public class GameLevelManager {
     }
     
     public void Update(float dt) {
+        if (GameManager.Get().isGamePauseByStopTimeSkill)
+            return;
+        
         _gameTimer += dt;
         _arrowTimer += dt;
 

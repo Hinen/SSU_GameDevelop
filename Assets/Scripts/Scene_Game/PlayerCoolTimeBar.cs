@@ -21,6 +21,9 @@ public class PlayerCoolTimeBar : PlayerBarBase {
     }
 
     public void Update() {
+        if (GameManager.Get().isGamePauseByStopTimeSkill)
+            return;
+        
         if (Value > 0f)
             Value -= Time.deltaTime;
     }

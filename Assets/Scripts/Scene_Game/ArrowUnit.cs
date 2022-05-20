@@ -41,6 +41,9 @@ public class ArrowUnit : PoolingGameObject {
     }
 
     public void Update() {
+        if (GameManager.Get().isGamePauseByStopTimeSkill)
+            return;
+        
         if (GamePosition.y <= -Constants.BACKGROUND_Y_DIFF - 10f) {
             Scene_Game.Get().PoolManager.DeSpawn(this);
             return;
