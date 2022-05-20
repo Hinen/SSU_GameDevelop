@@ -33,7 +33,7 @@ public static class Constants {
 			public const string TOUCH = "FX_TOUCH";
 			public const string JUMP = "FX_JUMP";
 			public const string CAT = "FX_CAT";
-			public const string TIME_STOP = "TIME_STOP";
+			public const string TIME_STOP = "FX_TIME_STOP";
 		}
 	}
 }

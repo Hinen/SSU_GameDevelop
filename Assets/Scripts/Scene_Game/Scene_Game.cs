@@ -29,6 +29,10 @@ public class Scene_Game : SceneBase {
 
 	[SerializeField]
 	private Image _damagedScreenImage;
+	
+	[SerializeField]
+	private Image _timeStopScreenImage;
+	public Image TimeStopScreenImage => _timeStopScreenImage;
 
 	[Header("Manager")]
 	[SerializeField]

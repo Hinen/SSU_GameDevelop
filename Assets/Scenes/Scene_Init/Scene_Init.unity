@@ -543,11 +543,13 @@ MonoBehaviour:
     - FX_TOUCH
     - FX_JUMP
     - FX_CAT
+    - FX_TIME_STOP
     m_values:
     - {fileID: 131640462}
     - {fileID: 423980679}
     - {fileID: 851497045}
     - {fileID: 1090127200}
+    - {fileID: 2009156570}
 --- !u!4 &851521565
 Transform:
   m_ObjectHideFlags: 0

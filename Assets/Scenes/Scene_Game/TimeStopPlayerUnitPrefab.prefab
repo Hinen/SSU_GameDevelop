@@ -733,7 +733,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6276293485248651334}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -781,6 +781,7 @@ MonoBehaviour:
   _rigidbody2D: {fileID: 6276293485248651333}
   _playerHpBar: {fileID: 8969358036131635925}
   _playerCoolTimeBar: {fileID: 6520840615618125984}
+  _timeStopScreenImage: {fileID: 0}
 --- !u!1 &8068187831321814810
 GameObject:
   m_ObjectHideFlags: 0
