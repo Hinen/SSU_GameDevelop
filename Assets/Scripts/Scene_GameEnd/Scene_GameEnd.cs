@@ -20,14 +20,18 @@ public class Scene_GameEnd : SceneBase {
 	}
 
 	public void OnClickContinueButton() {
+		SoundManager.Get().PlayFX(Constants.Sound.FX.TOUCH);
 		SceneManager.LoadScene(Constants.SceneName.SCENE_GAME);
 	}
 	
 	public void OnClickQuitButton() {
+		SoundManager.Get().PlayFX(Constants.Sound.FX.TOUCH);
 		SceneManager.LoadScene(Constants.SceneName.SCENE_TITLE);
 	}
 
 	public void OnClickSubmitRanking() {
+		SoundManager.Get().PlayFX(Constants.Sound.FX.TOUCH);
+		
 		GameManager.Get().maxGameScore = GameManager.Get().gameScore;
 		RankingManager.Get().InsertRanking(_rankingNameInputField.text, GameManager.Get().gameScore);
 		
