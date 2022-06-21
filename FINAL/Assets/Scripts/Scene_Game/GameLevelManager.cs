@@ -44,21 +44,20 @@ public class GameLevelManager {
 			return;
 
 		var loopCount = 3;
-		var maxX = (Constants.RESOLUTION_X / 2f) - 50f;
 		
 		for (int i = 1; i <= loopCount; i++) {
 			var newPosX = _lastCloudSpawnPosX + Random.Range(-300f, 300f);
 
-			if (newPosX < -maxX) {
+			if (newPosX < -Constants.BACKGROUND_X_RANGE) {
 				if (i == loopCount)
-					_lastCloudSpawnPosX = -maxX;
+					_lastCloudSpawnPosX = -Constants.BACKGROUND_X_RANGE;
 					
 				continue;
 			}
 
-			if (newPosX > maxX) {
+			if (newPosX > Constants.BACKGROUND_X_RANGE) {
 				if (i == loopCount)
-					_lastCloudSpawnPosX = maxX;
+					_lastCloudSpawnPosX = Constants.BACKGROUND_X_RANGE;
 				
 				continue;
 			}

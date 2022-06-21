@@ -1,6 +1,8 @@
 public static class Constants {
 	public const int RESOLUTION_X = 574;
 	public const int RESOLUTION_Y = 1024;
+	
+	public const float BACKGROUND_X_RANGE = RESOLUTION_X / 2f - 50f;
 
 	public static class SceneName {
 		public const string SCENE_INIT = "Scene_Init";
@@ -18,6 +20,8 @@ public static class Constants {
 	}
 
 	public static class Player {
+		public const float MOVE_SPEED = 1000f;
+		public const float MAX_MOVE_VELOCITY = 500f;
 		public const float JUMP_POWER = 1000f;
 	}
 
