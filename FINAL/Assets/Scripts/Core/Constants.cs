@@ -16,4 +16,8 @@ public static class Constants {
 			public const string GAME = "BGM_GAME";
 		}
 	}
+
+	public static class LevelDesign {
+		public const float CLOUD_SPAWN_TERM_Y = 200f;
+	}
 }

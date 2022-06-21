@@ -258,6 +258,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 832bbb20fe6cacf4aa3b5d7efb79559e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _gameCamera: {fileID: 1166771302}
   _player: {fileID: 1338871111}
   _worldCanvas: {fileID: 1180101972}
   _poolManager: {fileID: 755892807}
@@ -290,7 +291,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f4121432fe09be4ebd187aa47ba1d30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _gameCamera: {fileID: 1166771302}
 --- !u!1 &1166771300
 GameObject:
   m_ObjectHideFlags: 0

@@ -2,6 +2,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Scene_Game : SceneBase {
+	[Header("Camera")]
+	[SerializeField]
+	private Camera _gameCamera;
+	public Camera GameCamera => _gameCamera;
+	
 	[Header("Player")]
 	[SerializeField]
 	private GameObject _player;
@@ -19,14 +24,18 @@ public class Scene_Game : SceneBase {
 	private GameLevelManager _gameLevelManager = new GameLevelManager();
 	
 	private List<PoolingGameObject> _spawnedPoolingGameObjectList = new List<PoolingGameObject>();
-	public List<PoolingGameObject> SpawnedPoolingGameObjectList => _spawnedPoolingGameObjectList;
-	
+
 	public void Start() {
 		SoundManager.Get().PlayBGM(Constants.Sound.BGM.GAME);
 
 		_gameLevelManager.Init();
 	}
 
+	public override void Update() {
+		base.Update();
+		
+		_gameLevelManager.Update();
+	}
 
 	public PoolingGameObject Spawn(string key) { 
 		var obj = _poolManager.Spawn(key);
@@ -42,5 +51,22 @@ public class Scene_Game : SceneBase {
 		
 		_poolManager.DeSpawn(obj);
 		_spawnedPoolingGameObjectList.Remove(obj);
+	}
+	
+	public void AdjustGamePosition() {
+		GameCamera.transform.localPosition = Vector3.zero;
+		
+		//
+		Player.transform.Translate(new Vector3(0f, -Constants.RESOLUTION_Y, 0f));
+        
+		foreach (var obj in _spawnedPoolingGameObjectList) {
+			if (obj == null)
+				continue;
+            
+			obj.transform.Translate(new Vector3(0f, -Constants.RESOLUTION_Y, 0f));
+		}
+		
+		//
+		_gameLevelManager.AdjustGamePosition();
 	}
 }
