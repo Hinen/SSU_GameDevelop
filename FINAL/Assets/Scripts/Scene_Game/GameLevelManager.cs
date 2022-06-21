@@ -1,4 +1,6 @@
+using System;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class GameLevelManager {
 	private Scene_Game _scene;
@@ -40,6 +42,31 @@ public class GameLevelManager {
 		var cloud = _scene.Spawn(PoolManager.PoolingKey.CLOUD);
 		if (cloud == null)
 			return;
+
+		var loopCount = 3;
+		var maxX = (Constants.RESOLUTION_X / 2f) - 50f;
+		
+		for (int i = 1; i <= loopCount; i++) {
+			var newPosX = _lastCloudSpawnPosX + Random.Range(-300f, 300f);
+
+			if (newPosX < -maxX) {
+				if (i == loopCount)
+					_lastCloudSpawnPosX = -maxX;
+					
+				continue;
+			}
+
+			if (newPosX > maxX) {
+				if (i == loopCount)
+					_lastCloudSpawnPosX = maxX;
+				
+				continue;
+			}
+
+			_lastCloudSpawnPosX = newPosX;
+			break;
+		}
+		
 		
 		cloud.GamePosition = new Vector3(_lastCloudSpawnPosX, _lastCloudSpawnCameraPosY + 550f, 0f);
 	}
