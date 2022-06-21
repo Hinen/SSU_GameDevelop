@@ -5,7 +5,7 @@ using Random = UnityEngine.Random;
 public class GameLevelManager {
 	private Scene_Game _scene;
 
-	public float ScrollSpeed => 100f + Math.Min(200f, _gameTimer * 1.5f);
+	public float ScrollSpeed => 100f + Math.Min(300f, _gameTimer * 2f);
 
 	private float _gameTimer = 0f;
 
