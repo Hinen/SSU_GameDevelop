@@ -22,6 +22,7 @@ public class Scene_Game : SceneBase {
 	private PoolManager _poolManager;
 
 	private GameLevelManager _gameLevelManager = new GameLevelManager();
+	public GameLevelManager GameLevelManager => _gameLevelManager;
 	
 	private List<PoolingGameObject> _spawnedPoolingGameObjectList = new List<PoolingGameObject>();
 

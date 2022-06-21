@@ -5,12 +5,24 @@ using Random = UnityEngine.Random;
 public class GameLevelManager {
 	private Scene_Game _scene;
 
+	public float ScrollSpeed => 100f + Math.Min(200f, _gameTimer * 1.5f);
+
+	private float _gameTimer = 0f;
+
 	private float _lastCloudSpawnPosX = 0f;
 	private float _lastCloudSpawnCameraPosY = -50f;
 
 	public void Init() {
 		_scene = Scene_Game.Get<Scene_Game>();
+
+		_gameTimer = 0f;
+		_lastCloudSpawnPosX = 0f;
+		_lastCloudSpawnCameraPosY = -50f;
 		
+		InitCloud();
+	}
+
+	private void InitCloud() {
 		// 바닥 구름 4개
 		for (var i = 0; i < 4; i++) {
 			var cloud = _scene.Spawn(PoolManager.PoolingKey.CLOUD);
@@ -28,6 +40,8 @@ public class GameLevelManager {
 	}
 
 	public void Update() {
+		_gameTimer += Time.deltaTime;
+		
 		if (_scene.GameCamera.transform.localPosition.y - _lastCloudSpawnCameraPosY >= Constants.LevelDesign.CLOUD_SPAWN_TERM_Y)
 			SpawnCloud();
 	}
