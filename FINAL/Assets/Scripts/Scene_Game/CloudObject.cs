@@ -1,14 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+using System;
 
 public class CloudObject : PoolingGameObject {
-	public Vector2 GamePosition {
-		get {
-			return gameObject.transform.localPosition;
-		}
-		set {
-			gameObject.transform.localPosition = value;
-		}
-	}
+    public void Update() {
+        if (GamePosition.y <= -Constants.RESOLUTION_Y)
+            Scene_Game.Get<Scene_Game>().DeSpawn(this);
+    }
 }
