@@ -17,6 +17,10 @@ public static class Constants {
 		}
 	}
 
+	public static class Player {
+		public const float JUMP_POWER = 1000f;
+	}
+
 	public static class LevelDesign {
 		public const float CLOUD_SPAWN_TERM_Y = 200f;
 	}

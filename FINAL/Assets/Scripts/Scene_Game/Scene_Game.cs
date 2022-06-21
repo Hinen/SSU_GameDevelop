@@ -9,8 +9,8 @@ public class Scene_Game : SceneBase {
 	
 	[Header("Player")]
 	[SerializeField]
-	private GameObject _player;
-	public GameObject Player => _player;
+	private PlayerUnit _playerUnit;
+	public PlayerUnit PlayerUnit => _playerUnit;
 	
 	[Header("World")]
 	[SerializeField]
@@ -57,7 +57,7 @@ public class Scene_Game : SceneBase {
 		GameCamera.transform.localPosition = Vector3.zero;
 		
 		//
-		Player.transform.Translate(new Vector3(0f, -Constants.RESOLUTION_Y, 0f));
+		PlayerUnit.transform.Translate(new Vector3(0f, -Constants.RESOLUTION_Y, 0f));
         
 		foreach (var obj in _spawnedPoolingGameObjectList) {
 			if (obj == null)
