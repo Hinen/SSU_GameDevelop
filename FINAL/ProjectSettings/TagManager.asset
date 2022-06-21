@@ -38,6 +38,12 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Object
+    uniqueID: 1850830601
+    locked: 0
+  - name: ObjectUI
+    uniqueID: 2596328959
+    locked: 0
   - name: UI
     uniqueID: 2828392009
     locked: 0
