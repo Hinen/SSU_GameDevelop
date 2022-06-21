@@ -2,12 +2,18 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class SceneBase : MonoBehaviour {
+	private static SceneBase _instance;
+
+	public static T Get<T>() where T : SceneBase => (T)_instance;
+	
 	private static bool _isInited = false;
 
 	private int _lastDeviceWidth;
 	private int _lastDeviceHeight;
-	
+
 	public virtual void Awake() {
+		_instance = this;
+		
 		if (!_isInited) {
 			_isInited = true;
 
