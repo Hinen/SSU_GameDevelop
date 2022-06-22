@@ -73,7 +73,8 @@ public class PlayerUnit : UnitBase {
 			return;
 
 		State = PlayerState.JUMP;
-
+		SoundManager.Get().PlayFX(Constants.Sound.FX.JUMP);
+		
 		_rigidbody2D.AddForce(Vector2.up * Constants.Player.JUMP_POWER, ForceMode2D.Impulse);
 	}
 }

@@ -17,6 +17,10 @@ public static class Constants {
 			public const string TITLE = "BGM_TITLE";
 			public const string GAME = "BGM_GAME";
 		}
+		
+		public class FX {
+			public const string JUMP = "FX_JUMP";
+		}
 	}
 
 	public static class Player {
