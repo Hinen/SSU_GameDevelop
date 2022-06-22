@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Scene_Game : SceneBase {
 	[Header("Camera")]
@@ -16,6 +17,10 @@ public class Scene_Game : SceneBase {
 	[SerializeField]
 	private GameObject _worldCanvas;
 	public GameObject WorldCanvas => _worldCanvas;
+
+	[Header("UI")]
+	[SerializeField]
+	private Text _scoreText;
 
 	[Header("Manager")]
 	[SerializeField]

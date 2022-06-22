@@ -25,9 +25,10 @@ public class GameLevelManager {
 	private void InitCloud() {
 		// 바닥 구름 4개
 		for (var i = 0; i < 4; i++) {
-			var cloud = _scene.Spawn(PoolManager.PoolingKey.CLOUD);
+			var cloud = (CloudObject)_scene.Spawn(PoolManager.PoolingKey.CLOUD);
 			
-			cloud.GamePosition = new Vector3(-200f + i * 135f, -100f, 0f);	
+			cloud.GamePosition = new Vector3(-200f + i * 135f, -100f, 0f);
+			cloud.SetFlag(CloudObject.Flag.CAN_NOT_GET_SCORE);
 		}
 		
 		var cloud1 = _scene.Spawn(PoolManager.PoolingKey.CLOUD);
