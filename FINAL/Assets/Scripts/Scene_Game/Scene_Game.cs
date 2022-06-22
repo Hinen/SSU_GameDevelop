@@ -31,12 +31,12 @@ public class Scene_Game : SceneBase {
 	
 	private List<PoolingGameObject> _spawnedPoolingGameObjectList = new List<PoolingGameObject>();
 
-	private int _score = 0;
-
 	public void Start() {
 		SoundManager.Get().PlayBGM(Constants.Sound.BGM.GAME);
 
 		_gameLevelManager.Init();
+
+		GameManager.Get().Score = 0;
 	}
 
 	public override void Update() {
@@ -81,7 +81,7 @@ public class Scene_Game : SceneBase {
 	public void AddScore(int score) {
 		SoundManager.Get().PlayFX(Constants.Sound.FX.SCORE);
 		
-		_score += score;
-		_scoreText.text = _score.ToString();
+		GameManager.Get().Score += score;
+		_scoreText.text = GameManager.Get().Score.ToString();
 	}
 }
