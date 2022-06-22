@@ -7,7 +7,7 @@ public class ScrollManager : MonoBehaviour {
         _scene = Scene_Game.Get<Scene_Game>();
     }
 
-    public void Update() {
+    public void LateUpdate() {
         _scene.GameCamera.transform.Translate(Vector3.up * Time.deltaTime * _scene.GameLevelManager.ScrollSpeed);
 
         var cameraPosY = _scene.GameCamera.transform.localPosition.y;
