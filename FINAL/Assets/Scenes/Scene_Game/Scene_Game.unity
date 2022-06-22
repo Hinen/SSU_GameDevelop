@@ -452,6 +452,7 @@ MonoBehaviour:
   _gameCamera: {fileID: 1166771302}
   _playerUnit: {fileID: 1338871115}
   _worldCanvas: {fileID: 1180101972}
+  _scoreText: {fileID: 2071138517}
   _poolManager: {fileID: 755892807}
 --- !u!114 &755892807
 MonoBehaviour:
@@ -1077,7 +1078,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1554146099}
-  - component: {fileID: 1554146101}
   - component: {fileID: 1554146102}
   - component: {fileID: 1554146100}
   m_Layer: 0
@@ -1115,7 +1115,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 6.396374, y: -37.98472}
+  m_Offset: {x: 6.7544165, y: -34.798134}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -1126,54 +1126,8 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 26.6453, y: 5.782446}
+  m_Size: {x: 21.775915, y: 11.067795}
   m_EdgeRadius: 3
---- !u!60 &1554146101
-PolygonCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1554146098}
-  m_Enabled: 0
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: 23.30457, y: 31.70929}
-      - {x: 13.61493, y: 35.39345}
-      - {x: 2.7115102, y: 39.536858}
-      - {x: -5.1272655, y: 39.773476}
-      - {x: -9.886372, y: 35.3142}
-      - {x: -11.820035, y: 29.393795}
-      - {x: -14.76055, y: 22.03321}
-      - {x: -10.53812, y: 14.33762}
-      - {x: -8.170784, y: 9.079312}
-      - {x: -6.411989, y: 3.500401}
-      - {x: -6.87822, y: -9.969973}
-      - {x: -4.899026, y: -24.16251}
-      - {x: -1.4302635, y: -33.645992}
-      - {x: 4.086274, y: -34.34071}
-      - {x: 9.841077, y: -35.24072}
-      - {x: 15.77533, y: -33.32667}
-      - {x: 19.60339, y: -23.33436}
-      - {x: 20.18092, y: -0.9114653}
-      - {x: 21.800703, y: 8.500205}
-      - {x: 26.72408, y: 18.80174}
-      - {x: 28.02144, y: 24.52321}
 --- !u!70 &1554146102
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -1854,7 +1808,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 100
+  m_Text: 0
 --- !u!222 &2071138518
 CanvasRenderer:
   m_ObjectHideFlags: 0

@@ -31,6 +31,8 @@ public class Scene_Game : SceneBase {
 	
 	private List<PoolingGameObject> _spawnedPoolingGameObjectList = new List<PoolingGameObject>();
 
+	private int _score = 0;
+
 	public void Start() {
 		SoundManager.Get().PlayBGM(Constants.Sound.BGM.GAME);
 
@@ -74,5 +76,10 @@ public class Scene_Game : SceneBase {
 		
 		//
 		_gameLevelManager.AdjustGamePosition();
+	}
+
+	public void AddScore(int score) {
+		_score += score;
+		_scoreText.text = _score.ToString();
 	}
 }

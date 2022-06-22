@@ -28,7 +28,7 @@ public class GameLevelManager {
 			var cloud = (CloudObject)_scene.Spawn(PoolManager.PoolingKey.CLOUD);
 			
 			cloud.GamePosition = new Vector3(-200f + i * 135f, -100f, 0f);
-			cloud.SetFlag(CloudObject.Flag.CAN_NOT_GET_SCORE);
+			cloud.SetScoreFlag(CloudObject.CloudScoreFlag.CAN_NOT_GET_SCORE);
 		}
 		
 		var cloud1 = _scene.Spawn(PoolManager.PoolingKey.CLOUD);

@@ -77,4 +77,16 @@ public class PlayerUnit : UnitBase {
 		
 		_rigidbody2D.AddForce(Vector2.up * Constants.Player.JUMP_POWER, ForceMode2D.Impulse);
 	}
+	
+	public void OnTriggerEnter2D(Collider2D collider2D) {
+		var cloudObject = collider2D.GetComponentInParent<CloudObject>();
+		if (cloudObject == null)
+			return;
+		
+		if (cloudObject.ScoreFlag == CloudObject.CloudScoreFlag.CAN_NOT_GET_SCORE)
+			return;
+
+		cloudObject.SetScoreFlag(CloudObject.CloudScoreFlag.CAN_NOT_GET_SCORE);
+		Scene_Game.Get<Scene_Game>().AddScore(1);
+	}
 }
