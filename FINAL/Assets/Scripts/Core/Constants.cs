@@ -24,7 +24,7 @@ public static class Constants {
 	}
 
 	public static class Player {
-		public const float MOVE_SPEED = 1000f;
+		public const float MOVE_SPEED = 2000f;
 		public const float MAX_MOVE_VELOCITY = 500f;
 		public const float JUMP_POWER = 1000f;
 	}
