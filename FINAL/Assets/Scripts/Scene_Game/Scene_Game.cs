@@ -96,8 +96,6 @@ public class Scene_Game : SceneBase {
 	}
 
 	private void GameOver() {
-		SoundManager.Get().PlayFX(Constants.Sound.FX.CAT);
-		
 		SceneManager.LoadScene(Constants.SceneName.SCENE_RESULT);
 	}
 }
