@@ -8,7 +8,6 @@ public static class Constants {
 		public const string SCENE_INIT = "Scene_Init";
 		public const string SCENE_TITLE = "Scene_Title";
 		public const string SCENE_GAME = "Scene_Game";
-		public const string SCENE_RANKING = "Scene_Ranking";
 		public const string SCENE_RESULT = "Scene_Result";
 	}
 
