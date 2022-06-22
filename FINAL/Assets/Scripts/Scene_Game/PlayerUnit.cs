@@ -33,6 +33,12 @@ public class PlayerUnit : UnitBase {
 		}
 	}
 	
+	private Scene_Game _scene;
+
+	public void Start() {
+		_scene = Scene_Game.Get<Scene_Game>();
+	}
+	
 	public void Update() {
 		UpdateState();
 	}
@@ -55,7 +61,7 @@ public class PlayerUnit : UnitBase {
 				State = PlayerState.WALK;
 		}
 	}
-
+	
 	public void Move(Vector2 dir) {
 		gameObject.transform.localScale = new Vector3(dir.x, 1f, 1f);
 		
@@ -87,6 +93,6 @@ public class PlayerUnit : UnitBase {
 			return;
 
 		cloudObject.SetScoreFlag(CloudObject.CloudScoreFlag.CAN_NOT_GET_SCORE);
-		Scene_Game.Get<Scene_Game>().AddScore(1);
+		_scene.AddScore(1);
 	}
 }

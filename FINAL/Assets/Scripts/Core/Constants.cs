@@ -9,7 +9,7 @@ public static class Constants {
 		public const string SCENE_TITLE = "Scene_Title";
 		public const string SCENE_GAME = "Scene_Game";
 		public const string SCENE_RANKING = "Scene_Ranking";
-		public const string SCENE_GAME_END = "Scene_GameEnd";
+		public const string SCENE_RESULT = "Scene_Result";
 	}
 
 	public static class Sound {
@@ -21,6 +21,7 @@ public static class Constants {
 		public class FX {
 			public const string JUMP = "FX_JUMP";
 			public const string SCORE = "FX_SCORE";
+			public const string CAT = "FX_CAT";
 		}
 	}
 

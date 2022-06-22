@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Scene_Game : SceneBase {
@@ -26,10 +27,10 @@ public class Scene_Game : SceneBase {
 	[SerializeField]
 	private PoolManager _poolManager;
 
-	private GameLevelManager _gameLevelManager = new GameLevelManager();
+	private readonly GameLevelManager _gameLevelManager = new GameLevelManager();
 	public GameLevelManager GameLevelManager => _gameLevelManager;
 	
-	private List<PoolingGameObject> _spawnedPoolingGameObjectList = new List<PoolingGameObject>();
+	private readonly List<PoolingGameObject> _spawnedPoolingGameObjectList = new List<PoolingGameObject>();
 
 	public void Start() {
 		SoundManager.Get().PlayBGM(Constants.Sound.BGM.GAME);
@@ -43,6 +44,8 @@ public class Scene_Game : SceneBase {
 		base.Update();
 		
 		_gameLevelManager.Update();
+		
+		CheckGameOver();
 	}
 
 	public PoolingGameObject Spawn(string key) { 
@@ -83,5 +86,18 @@ public class Scene_Game : SceneBase {
 		
 		GameManager.Get().Score += score;
 		_scoreText.text = GameManager.Get().Score.ToString();
+	}
+	
+	private void CheckGameOver() {
+		var cameraPosY = GameCamera.transform.localPosition.y;
+		var playerPosY = PlayerUnit.transform.localPosition.y;
+		if (cameraPosY - playerPosY > (Constants.RESOLUTION_Y / 2) + 50f)
+			GameOver();
+	}
+
+	private void GameOver() {
+		SoundManager.Get().PlayFX(Constants.Sound.FX.CAT);
+		
+		SceneManager.LoadScene(Constants.SceneName.SCENE_RESULT);
 	}
 }
