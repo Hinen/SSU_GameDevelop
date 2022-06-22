@@ -39,12 +39,16 @@ public class SceneBase : MonoBehaviour {
 			return;
 
 		if ((float)Constants.RESOLUTION_X / Constants.RESOLUTION_Y < (float)deviceWidth / deviceHeight) {
-			var newWidth = ((float)Constants.RESOLUTION_X / Constants.RESOLUTION_Y) / ((float)deviceWidth / deviceHeight); 
-			Camera.main.rect = new Rect((1f - newWidth) / 2f, 0f, newWidth, 1f);
+			var newWidth = ((float)Constants.RESOLUTION_X / Constants.RESOLUTION_Y) / ((float)deviceWidth / deviceHeight);
+			
+			foreach (var camera in Camera.allCameras)
+				camera.rect = new Rect((1f - newWidth) / 2f, 0f, newWidth, 1f);
 		}
 		else {
 			var newHeight = ((float)deviceWidth / deviceHeight) / ((float)Constants.RESOLUTION_X / Constants.RESOLUTION_Y);
-			Camera.main.rect = new Rect(0f, (1f - newHeight) / 2f, 1f, newHeight);
+			
+			foreach (var camera in Camera.allCameras)
+				camera.rect = new Rect(0f, (1f - newHeight) / 2f, 1f, newHeight);
 		}
 
 		_lastDeviceWidth = deviceWidth;
