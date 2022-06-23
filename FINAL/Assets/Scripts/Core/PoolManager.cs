@@ -4,6 +4,7 @@ using UnityEngine;
 public class PoolManager : MonoBehaviour {
 	public static class PoolingKey {
 		public const string CLOUD = "Cloud";
+		public const string FLAG_CLOUD = "FlagCloud";
 	}
 	
 	[Header("Pooling Target")]

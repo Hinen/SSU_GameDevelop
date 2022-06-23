@@ -92,7 +92,7 @@ public class PlayerUnit : UnitBase {
 		if (cloudObject.ScoreFlag == CloudObject.CloudScoreFlag.CAN_NOT_GET_SCORE)
 			return;
 
+		_scene.AddScore(cloudObject.ScoreFlag == CloudObject.CloudScoreFlag.CAN_GET_SCORE_5 ? 5 : 1);
 		cloudObject.SetScoreFlag(CloudObject.CloudScoreFlag.CAN_NOT_GET_SCORE);
-		_scene.AddScore(1);
 	}
 }

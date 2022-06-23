@@ -12,6 +12,8 @@ public class GameLevelManager {
 	private float _lastCloudSpawnPosX = 0f;
 	private float _lastCloudSpawnCameraPosY = -50f;
 
+	private int _forFlagCloudSpawnCount = 0;
+
 	public void Init() {
 		_scene = Scene_Game.Get<Scene_Game>();
 
@@ -38,6 +40,8 @@ public class GameLevelManager {
 		cloud1.GamePosition = new Vector3(-200f, 100f, 0f);
 		cloud2.GamePosition = new Vector3(0f, 300f, 0f);
 		cloud3.GamePosition = new Vector3(200f, 500f, 0f);
+
+		_forFlagCloudSpawnCount = 3;
 	}
 
 	public void Update() {
@@ -53,10 +57,23 @@ public class GameLevelManager {
 	
 	private void SpawnCloud() {
 		_lastCloudSpawnCameraPosY = _scene.GameCamera.transform.localPosition.y;
+
+		PoolingGameObject cloud = null;
 		
-		var cloud = _scene.Spawn(PoolManager.PoolingKey.CLOUD);
-		if (cloud == null)
-			return;
+		if (_forFlagCloudSpawnCount == 4) {
+			_forFlagCloudSpawnCount = 0;
+			
+			cloud = _scene.Spawn(PoolManager.PoolingKey.FLAG_CLOUD);
+			if (cloud == null)
+				return;
+		}
+		else {
+			cloud = _scene.Spawn(PoolManager.PoolingKey.CLOUD);
+			if (cloud == null)
+				return;
+
+			_forFlagCloudSpawnCount++;
+		}
 
 		var loopCount = 3;
 		

@@ -485,8 +485,10 @@ MonoBehaviour:
   _poolingTarget:
     m_keys:
     - Cloud
+    - FlagCloud
     m_values:
     - {fileID: 4705450325392903540, guid: 14de43e8283252642831f4fcfbbbbe9d, type: 3}
+    - {fileID: 7490223381743562965, guid: e656c4cdc8c0c4146ab21f79c5851d35, type: 3}
 --- !u!114 &755892808
 MonoBehaviour:
   m_ObjectHideFlags: 0
