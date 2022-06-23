@@ -21,6 +21,7 @@ public static class Constants {
 			public const string JUMP = "FX_JUMP";
 			public const string SCORE = "FX_SCORE";
 			public const string CAT = "FX_CAT";
+			public const string TOUCH = "FX_TOUCH";
 		}
 	}
 
