@@ -92,7 +92,15 @@ public class PlayerUnit : UnitBase {
 		if (cloudObject.ScoreFlag == CloudObject.CloudScoreFlag.CAN_NOT_GET_SCORE)
 			return;
 
-		_scene.AddScore(cloudObject.ScoreFlag == CloudObject.CloudScoreFlag.CAN_GET_SCORE_5 ? 5 : 1);
+		if (cloudObject.ScoreFlag == CloudObject.CloudScoreFlag.CAN_GET_SCORE_5) {
+			SoundManager.Get().PlayFX(Constants.Sound.FX.SCORE);
+			_scene.AddScore(5);
+		}
+		else {
+			SoundManager.Get().PlayFX(Constants.Sound.FX.SCORE2);
+			_scene.AddScore(1);
+		}
+		
 		cloudObject.SetScoreFlag(CloudObject.CloudScoreFlag.CAN_NOT_GET_SCORE);
 	}
 }

@@ -20,6 +20,7 @@ public static class Constants {
 		public class FX {
 			public const string JUMP = "FX_JUMP";
 			public const string SCORE = "FX_SCORE";
+			public const string SCORE2 = "FX_SCORE2";
 			public const string CAT = "FX_CAT";
 			public const string TOUCH = "FX_TOUCH";
 		}

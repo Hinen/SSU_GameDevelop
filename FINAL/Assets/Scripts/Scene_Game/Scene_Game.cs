@@ -82,8 +82,6 @@ public class Scene_Game : SceneBase {
 	}
 
 	public void AddScore(int score) {
-		SoundManager.Get().PlayFX(Constants.Sound.FX.SCORE);
-		
 		GameManager.Get().Score += score;
 		_scoreText.text = GameManager.Get().Score.ToString();
 	}
